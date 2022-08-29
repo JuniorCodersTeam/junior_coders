@@ -4,7 +4,7 @@
 @import "base/_reset.scss";
 @import "base/typography";
 
-@import "layout/logo";
+@import "components/logo";
 
-@import"components/navbar";
-@import"components/footer";
+@import"layout/navbar";
+@import"layout/footer";
