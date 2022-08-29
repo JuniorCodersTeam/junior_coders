@@ -1,4 +1,7 @@
 @import "variables";
+
+//DEVICES
+
 // Small devices
 @mixin sm {
   @media (min-width: #{$screen-sm-min}) {
@@ -30,5 +33,33 @@
 @mixin xxl {
   @media (min-width: #{$screen-2xl-min}) {
     @content;
+  }
+}
+
+
+//CONTAINER
+
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width:1024px
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    max-width:1280px
   }
 }
