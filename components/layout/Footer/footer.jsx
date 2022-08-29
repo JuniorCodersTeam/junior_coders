@@ -1,9 +1,10 @@
 import { Logo } from "../Navbar/Logo";
+import {AiFillFacebook, AiOutlineInstagram} from "react-icons/ai"
 
 const Footer = () => {
     return (
-        <footer>
-            <div className="container">
+        <footer className="footer">
+            <div className="container footer-container">
 
                 <article className="footer-content">
                     
@@ -12,10 +13,10 @@ const Footer = () => {
                     </div>
                     
                     <div className="footer-socials">
-                        <i className="fa-brands fa-square-facebook"></i>
-                        <i className="fa-brands fa-instagram"></i>
+                        <AiFillFacebook />
+                        <AiOutlineInstagram />
                     </div>
-                    
+
                 </article>
 
                 <article className="footer-copyright">
