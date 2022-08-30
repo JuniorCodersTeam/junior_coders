@@ -1,18 +1,18 @@
 export const menuItems = [
-    {
-        link: "/about",
-        title: "O mnie",
-    },
-    {
-        link: "/portfolio",
-        title: "Portfolio",
-    },
-    {
-        link: "/blog",
-        title: "Blog",
-    },
-    {
-        link: "/contact",
-        title: "Kontakt",
-    },
+  {
+    link: "/about",
+    title: "O nas",
+  },
+  {
+    link: "/projects",
+    title: "Projekty",
+  },
+  {
+    link: "/blog",
+    title: "Blog",
+  },
+  {
+    link: "/contact",
+    title: "Kontakt",
+  },
 ];
