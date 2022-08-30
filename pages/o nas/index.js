@@ -1,8 +1,8 @@
+import AboutUs from "../../components/layout/AboutUs/AboutUs";
+
 const About = () => {
     return (
-        <div>
-            <h1>tu będzie sekcja o nas</h1>
-        </div>
+        <AboutUs/>
     );
 };
 
