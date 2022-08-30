@@ -1,3 +1,5 @@
+@import "../components/logo";
+
 .footer {
     min-height: 10vh;
     background-color: $background-white-cream;
@@ -13,14 +15,10 @@
 }
 
 .footer-logo {
-    svg {
+        @include logoTextColor(black);
         height: 4rem;
         width: 4rem;
         margin: auto;
-        .st1 {
-            fill: black;
-        }
-    }
 }
 
 .footer-content {
