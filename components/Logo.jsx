@@ -4,11 +4,7 @@ export const Logo = () => {
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      x="0px"
-      y="0px"
-      width="432.5px"
-      height="319px"
-      viewBox="0 0 432.5 319"
+      viewBox="0 0 435 319"
       xmlSpace="preserve"
       className="logo"
     >
