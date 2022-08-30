@@ -1,4 +1,4 @@
-import { Logo } from "../Navbar/Logo";
+import { Logo } from "../../Logo";
 import {AiFillFacebook, AiOutlineInstagram} from "react-icons/ai"
 
 const Footer = () => {
