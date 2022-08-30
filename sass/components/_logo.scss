@@ -1,0 +1,19 @@
+@import "../utilities/variables";
+
+
+@mixin logoTextColor($color) {
+  .logo {
+    height: 100%;
+    width: auto;
+    left: 0;
+    top: 0;
+
+    .st0 {
+      fill: $primary-yellow;
+    }
+
+    .st1 {
+      fill: $color;
+    }
+  }
+}
