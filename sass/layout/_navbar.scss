@@ -5,7 +5,7 @@
   z-index: 999;
   position: sticky;
   top: 0;
-  background-color: #EFEFEF;
+  background-color: $background-white-cream;
   @extend .shadow-bottom;
   @include logoTextColor(black);
 
@@ -26,7 +26,6 @@
     width: auto;
     height: 6rem;
     position: relative;
-
   }
 
 
@@ -49,18 +48,11 @@
     }
   }
 
-  &--items-desktop {
-    display: none;
-    @include lg {
-      display: flex;
-      align-items: center;
-    }
-
+  &--items-desktop, &--items-mobile {
     & a {
       margin: 0 .5rem;
       text-decoration: none;
       text-transform: uppercase;
-      font-size: .875rem;
       line-height: 1.25;
       letter-spacing: -.05rem;
 
@@ -70,29 +62,20 @@
     }
   }
 
+  &--items-desktop {
+    display: none;
+    @include lg {
+      display: flex;
+      align-items: center;
+    }
+  }
+
   &--items-mobile {
     @include lg {
       display: none;
     }
     display: flex;
+    align-items: center;
     flex-direction: column;
-  }
-
-  li {
-    display: flex;
-    justify-content: center;
-  }
-
-  a {
-    margin: 0 .5rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: .875rem;
-    line-height: 1.25;
-    letter-spacing: -.05rem;
-
-    &:hover {
-      opacity: .75;
-    }
   }
 }

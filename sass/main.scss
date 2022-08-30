@@ -1,8 +1,9 @@
+@import "base/_reset.scss";
+@import "base/typography";
+
 @import "utilities/variables";
 @import "utilities/mixins";
 
-@import "base/_reset.scss";
-@import "base/typography";
 
 @import "components/logo";
 
