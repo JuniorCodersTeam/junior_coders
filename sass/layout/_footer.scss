@@ -1,14 +1,15 @@
 @import "../components/logo";
+@import "./sass/utilities/mixins";
 
 .footer {
     min-height: 10vh;
     background-color: $background-white-cream;
-    display: flex;
-    justify-content: center;
+    // display: flex;
+    // justify-content: center;
 }
 
 .footer-container {
-    max-width: 90%;
+    @extend .container;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,7 +19,6 @@
         @include logoTextColor(black);
         height: 4rem;
         width: 4rem;
-        margin: auto;
 }
 
 .footer-content {
