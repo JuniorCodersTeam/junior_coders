@@ -17,14 +17,11 @@ export const Banner = ({resBanner}) => {
             
                 <Image
                     src={resBanner[0].fields.bannerImage.fields.file.url.replace("//", "https://")}
-                    alt="Something"
+                    alt="Banner image"
                     layout="fill"
-                    // height={200}
-                    // width={500}
                     objectFit="cover"
                     quality={100}
                     priority={true}
-                    className="banner-image"
                 />
                 <div className="banner-content">
                     <div className="banner--logo-wrapper">

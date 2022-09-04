@@ -1,9 +1,5 @@
 @import "./../utilities/mixins";
 
-.banner-image {
-    left: 55%;
-}
-
 .banner-container {
     position: relative;
     width: 100%;
@@ -17,7 +13,6 @@
 }
 
 .banner-content {
-    // border: 1px solid red;
     position: absolute;
     width: 80%;
     height: 80%;
