@@ -1,15 +1,8 @@
-import {useEffect} from "react"
 import { Logo } from "../components/Logo";
 import Image from 'next/image'
 
 
 export const Banner = ({resBanner}) => {
-
-    useEffect(()=> {
-        console.log(resBanner[0].fields)
-    },[])
-
-    
 
     return(
         <>
