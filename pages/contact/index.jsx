@@ -1,4 +1,6 @@
 import { useState, useRef} from 'react';
+import emailjs from '@emailjs/browser';
+import {SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY} from '../../emailkey';
 
 const Contact = () => {
   const [msgFrom, setMsgFrom] = useState("")
@@ -97,10 +99,12 @@ const Contact = () => {
     }
 
     if (!msgFromErr && !emailErr && !msgErr && !agreeErr && msgFrom.length && email.length && msg.length && agreed) {
-        
-
-        console.log(form.current)
-        console.log(checkmark)
+      emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
+        .then((result) => {
+            console.log(result.text, "message sent");
+        }, (error) => {
+            console.log(error.text);
+        });
         clearForm()
     }
   }
@@ -111,6 +115,7 @@ const Contact = () => {
     setMsg("")
     setAgreed(false)
     checkmark.current.checked = false
+    alert("Sukces")
 }
 
   return (
