@@ -97,16 +97,11 @@ const Contact = () => {
     }
 
     if (!msgFromErr && !emailErr && !msgErr && !agreeErr && msgFrom.length && email.length && msg.length && agreed) {
-        // emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
-        //   .then((result) => {
-        //     console.log(result.text, "message sent");
-        //   }, (error) => {
-        //   console.log(error.text);
-        // });
+        
+
         console.log(form.current)
         console.log(checkmark)
         clearForm()
-    // setSendSuccess(true)
     }
   }
 
