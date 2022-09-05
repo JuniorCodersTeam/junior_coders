@@ -11,6 +11,7 @@ const Contact = () => {
   const [agreeErr, setAgreeErr] = useState(false)
 
   const form = useRef()
+  const checkmark = useRef()
 
   const preventEnter = (e) => {
     if(e.key === 'Enter'){
@@ -76,10 +77,51 @@ const Contact = () => {
       }
   }
 
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    if(!msgFrom.length) {
+      setMsgFromErr(true)
+    }
+
+    if(!email.length) {
+        setEmailErr(true)
+    }
+
+    if(!msg.length) {
+        setMsgErr(true)
+    }
+
+    if (!agreed) {
+        setAgreeErr(true)
+    }
+
+    if (!msgFromErr && !emailErr && !msgErr && !agreeErr && msgFrom.length && email.length && msg.length && agreed) {
+        // emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
+        //   .then((result) => {
+        //     console.log(result.text, "message sent");
+        //   }, (error) => {
+        //   console.log(error.text);
+        // });
+        console.log(form.current)
+        console.log(checkmark)
+        clearForm()
+    // setSendSuccess(true)
+    }
+  }
+
+  const clearForm = () => {
+    setMsgFrom("")
+    setEmail("")
+    setMsg("")
+    setAgreed(false)
+    checkmark.current.checked = false
+}
+
   return (
     <>
       <div className="contact-container">
-        <form ref={form} className="contact-form">
+        <form ref={form} className="contact-form" onSubmit={sendEmail}>
           <h2 className="contact-form-title">Napisz do nas</h2>
           <input
             name="user_name"
@@ -144,6 +186,7 @@ const Contact = () => {
           </h6>
           <div className='agree-box'>
             <input
+              ref={checkmark}
               type="checkbox"
               id="agreement-input"
               onChange={handleCheckAgree}
@@ -161,6 +204,7 @@ const Contact = () => {
             "contact-form-alert d-none"
             }>Aby wysłać zapytanie potrzebna jest Twoja zgoda na przetwarzanie danych!
           </h6>
+          <button type="submit">Wyślij</button>
         </form>
         
       </div>

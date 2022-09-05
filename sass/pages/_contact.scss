@@ -70,6 +70,23 @@
     text-align: center;
 }
 
+.contact-form button {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    background-color: $primary-yellow;
+    font-weight: 600;
+    color: $secondary-gray;
+    border: none;
+    text-transform: uppercase;
+    padding: 10px 25px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    &:hover {
+        filter: brightness(1.1);
+        border: 1px solid $secondary-gray;
+    }
+}
+
 //checkbox
 .agree-box {
     // border: 1px solid red;
