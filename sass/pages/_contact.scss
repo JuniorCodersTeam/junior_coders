@@ -1,0 +1,21 @@
+@import "./../utilities/mixins";
+
+.contact-container {
+    // border: 1px solid red;
+    @extend .container;
+    width: 100%;
+    height: 75vh;
+    background: url(../../pages/contact/background_bottom.png) no-repeat bottom/cover;
+}
+
+.contact-title {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: $secondary-gray;
+    text-align: center;
+    @include md {
+        font-size: 2rem;
+        margin-top: 3rem;
+    }
+}
