@@ -1,6 +1,10 @@
 import { useState, useRef} from 'react';
 import emailjs from '@emailjs/browser';
 import {SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY} from '../../emailkey';
+// import {ContactModal} from '../../components/ContactModal'
+// import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import Swal from 'sweetalert2';
 
 const Contact = () => {
   const [msgFrom, setMsgFrom] = useState("")
@@ -14,6 +18,20 @@ const Contact = () => {
 
   const form = useRef()
   const checkmark = useRef()
+
+  const fireModal = () => {
+    Swal.fire({
+      title: 'Wiadomość wysłana',
+      text: 'Dziękujemy, skontaktujemy się z Tobą jak najszybciej',
+      background: "#FFD100",
+      timer: 2000,
+      showConfirmButton: false,
+      timerProgressBar: true,
+      customClass: {
+        popup: 'swal-appearance'
+      }
+    })
+  }
 
   const preventEnter = (e) => {
     if(e.key === 'Enter'){
@@ -102,10 +120,15 @@ const Contact = () => {
       emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
         .then((result) => {
             console.log(result.text, "message sent");
+  
         }, (error) => {
             console.log(error.text);
+            alert(error.text)
+            return
         });
+        
         clearForm()
+        fireModal()
     }
   }
 
@@ -115,7 +138,6 @@ const Contact = () => {
     setMsg("")
     setAgreed(false)
     checkmark.current.checked = false
-    alert("Sukces")
 }
 
   return (
@@ -206,7 +228,6 @@ const Contact = () => {
           </h6>
           <button type="submit">Wyślij</button>
         </form>
-        
       </div>
     </>
   )
