@@ -177,6 +177,7 @@
     display: flex;
     align-items: center;
     color: $secondary-gray;
+    @extend .shadow-bottom;
     .swal2-title {
         font-style: italic;
         padding-top: 2rem;

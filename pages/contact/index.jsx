@@ -126,7 +126,7 @@ const Contact = () => {
             alert(error.text)
             return
         });
-        
+
         clearForm()
         fireModal()
     }
@@ -228,6 +228,7 @@ const Contact = () => {
           </h6>
           <button type="submit">Wyślij</button>
         </form>
+        <button onClick={fireModal}>modal</button>
       </div>
     </>
   )
