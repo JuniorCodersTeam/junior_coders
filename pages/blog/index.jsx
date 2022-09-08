@@ -22,7 +22,9 @@ export async function getStaticProps() {
 const blog = ({ posts }) => {
   return (
     <>
-      <BlogCard posts={posts} />
+      {posts.map((post) => (
+        <BlogCard post={post} key={post.sys.id} />
+      ))}
     </>
   );
 };
