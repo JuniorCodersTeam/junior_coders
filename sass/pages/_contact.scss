@@ -1,0 +1,194 @@
+@import "./../utilities/mixins";
+
+.d-none {
+    display: none;
+}
+
+.contact-container {
+    // border: 1px solid red;
+    @extend .container;
+    width: 100%;
+    min-height: 75vh;
+    background: url(../../pages/contact/background_bottom.png) no-repeat bottom/cover;
+}
+
+.contact-form-title {
+    margin-top: 4rem;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: $secondary-gray;
+    text-align: center;
+    @include md {
+        font-size: 2rem;
+        margin-top: 5rem;
+    }
+}
+
+.contact-form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    input, textarea {
+        font-family: Prompt;
+        margin-top: 2rem;
+        background-color: rgba(255, 255, 255, 0.3);
+        border: none;
+        border: 1px solid rgba(128, 128, 128, 0.555);
+        border-radius: 5px;
+        width: 70%;
+        padding: 15px;
+        @include md {
+            width: 40%;
+        }
+        @include lg {
+            width: 30%;
+        }
+        &:focus{
+            border:1px solid $primary-yellow;
+        }
+        &:focus-visible{
+            outline: none;
+        }
+        &::placeholder {
+            color: rgba(128, 128, 128, 0.589);
+            font-family: Prompt;
+        }
+    }
+}
+
+.contact-form input.form-control-alert,
+.contact-form textarea.form-control-alert{
+    border: 1px solid red;
+}
+
+.contact-form-alert {
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    color: red;
+    font-size: 0.9rem;
+    width: 80%;
+    text-align: center;
+    @include md {
+        width: 40%;
+    }
+    @include lg {
+        width: 30%;
+    }
+}
+
+.contact-form button {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    background-color: $primary-yellow;
+    font-weight: 600;
+    color: $secondary-gray;
+    border: none;
+    text-transform: uppercase;
+    padding: 10px 25px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    &:hover {
+        filter: brightness(0.9);
+        border: 1px solid $secondary-gray;
+    }
+}
+
+//checkbox
+.agree-box {
+    // border: 1px solid red;
+    display: flex;
+    margin-top: 15px;
+    position: relative;
+    width: 70%;
+    @include md {
+        width: 40%;
+    }
+    @include lg {
+        width: 30%;
+    }
+    label {
+        text-align: left;
+        color: rgba(128, 128, 128, 0.589);
+    }
+}
+
+.agree-box input {
+    position: absolute;
+    top: -32px;
+    left: -4px;
+    opacity: 0;
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    z-index: 9;
+    }
+
+.agree-box label {
+    margin-top: 0;
+    margin-left: 35px;
+    font-size: 0.8em;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: rgba(128, 128, 128, 0.7);
+    border-radius: 50%;
+    
+    }
+
+.agree-box:hover input ~ .checkmark {
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+.agree-box input:checked ~ .checkmark {
+    background-color: $primary-yellow;
+    }
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.agree-box input:checked ~ .checkmark:after {
+    display: block;
+    }
+
+.agree-box .checkmark:after {
+        left: 8px;
+        top: 4px;
+        width: 7px;
+        height: 12px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+}
+
+//modal
+
+.swal-appearance {
+    display: flex;
+    align-items: center;
+    color: $secondary-gray;
+    @extend .shadow-bottom;
+    .swal2-title {
+        font-style: italic;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 2px solid $secondary-gray;
+    }
+    .swal2-html-container {
+        font-size: 1rem;
+    }
+}
+
+
+
+
