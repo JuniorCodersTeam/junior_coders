@@ -13,6 +13,7 @@ export const Banner = ({resBanner}) => {
                     alt="Banner image"
                     layout="fill"
                     objectFit="cover"
+                    objectPosition="50% 30%"
                     quality={100}
                     priority={true}
                 />
