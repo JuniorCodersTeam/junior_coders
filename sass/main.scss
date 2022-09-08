@@ -5,9 +5,10 @@
 @import "utilities/mixins";
 
 
-@import "layout/footer";
 @import "components/logo";
-
+@import "components/blogCard";
 
 @import"layout/navbar";
 @import"layout/footer";
+
+@import "pages/blog";
