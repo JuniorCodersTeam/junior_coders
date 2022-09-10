@@ -32,7 +32,6 @@ export const BlogCard = ({ post }) => {
             src={`https:${post.fields.author.fields.photo.fields.file.url}`}
             width="50"
             height="50"
-            objectPosition="top center"
           />
           <div>
             <p>{post.fields.author.fields.author}</p>

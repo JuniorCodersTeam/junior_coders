@@ -63,3 +63,8 @@
 .shadow-bottom {
   box-shadow: 0 5px 5px -5px #333;
 }
+
+//MIN HEIGHT SCREEN
+.min-height-screen {
+  min-height: calc(100vh - 6rem - 145.59px);
+}
