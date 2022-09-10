@@ -1,0 +1,16 @@
+@import "./sass/utilities/variables";
+
+.btn {
+    background-color: $primary-yellow;
+    padding: .3rem .5rem .3rem 1rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    max-width: fit-content;
+  .arrow-icon {
+    font-size: 1.5rem;
+  }
+}
+

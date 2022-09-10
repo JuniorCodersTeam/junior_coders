@@ -1,26 +1,45 @@
-import Link from "next/link";
 import Image from "next/image";
+import { Button } from "../UI/Button";
 
 export const BlogCard = ({ post }) => {
-  console.log(post);
-  const { title, slug, featureImage } = post.fields;
-  console.log({ featureImage });
+  const {
+    title,
+    slug,
+    featureImage,
+    shortDescription,
+    data: date,
+  } = post.fields;
+
+  const formattedData = new Date(date).toDateString();
+
   return (
     <div className="blog-card">
-      <div>
-        <Link href={`blog/${slug}`}>
-          <a>
-            <div>
-              <h1>{title}</h1>
-              <div className="wrapper-image-test">
-                <Image
-                  src={`https:${featureImage.fields.file.url}`}
-                  layout="fill"
-                />
-              </div>
-            </div>
-          </a>
-        </Link>
+      <Image
+        alt={featureImage.fields.title}
+        src={`https:${featureImage.fields.file.url}`}
+        width="384"
+        height="288"
+        className="blog-card--image"
+        objectFit="cover"
+        objectPosition="top"
+      />
+      <h1>{title}</h1>
+      <p>{shortDescription}</p>
+      <div className="blog-card--actions">
+        <div className="blog-card--author">
+          <Image
+            alt={post.fields.author.fields.photo.fields.description}
+            src={`https:${post.fields.author.fields.photo.fields.file.url}`}
+            width="50"
+            height="50"
+            objectPosition="top center"
+          />
+          <div>
+            <p>{post.fields.author.fields.author}</p>
+            <span>{formattedData}</span>
+          </div>
+        </div>
+        <Button link={slug} />
       </div>
     </div>
   );

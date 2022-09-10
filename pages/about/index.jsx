@@ -1,9 +1,7 @@
-import {AboutUs} from "../../components/layout/AboutUs";
+import AboutUs from "../../components/layout/AboutUs/AboutUs";
 
 const About = () => {
-    return (
-        <AboutUs/>
-    );
+  return <AboutUs />;
 };
 
 export default About;
