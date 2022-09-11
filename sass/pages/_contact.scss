@@ -4,12 +4,19 @@
     display: none;
 }
 
+.contact {
+    margin: 0 auto;
+    max-width: $screen-2xl-min;
+    min-height: calc(100vh - 6rem - 145.59px);
+    background-image: url(../../pages/contact/background_bottom.png);
+    background-position: center bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .contact-container {
-    // border: 1px solid red;
     @extend .container;
-    width: 100%;
-    min-height: 75vh;
-    background: url(../../pages/contact/background_bottom.png) no-repeat bottom/cover;
+    height: 40rem
 }
 
 .contact-form-title {
@@ -30,10 +37,9 @@
     flex-direction: column;
     align-items: center;
     input, textarea {
-        font-family: Prompt;
+        font-family: 'Prompt', sans-serif;
         margin-top: 2rem;
         background-color: rgba(255, 255, 255, 0.3);
-        border: none;
         border: 1px solid rgba(128, 128, 128, 0.555);
         border-radius: 5px;
         width: 70%;
@@ -52,7 +58,7 @@
         }
         &::placeholder {
             color: rgba(128, 128, 128, 0.589);
-            font-family: Prompt;
+            font-family: 'Prompt', sans-serif;
         }
     }
 }
@@ -63,8 +69,7 @@
 }
 
 .contact-form-alert {
-    margin: 0 auto;
-    margin-top: 0.5rem;
+    margin: 0.5rem auto 0;
     color: red;
     font-size: 0.9rem;
     width: 80%;
@@ -83,7 +88,6 @@
     background-color: $primary-yellow;
     font-weight: 600;
     color: $secondary-gray;
-    border: none;
     text-transform: uppercase;
     padding: 10px 25px;
     border-radius: 20px;
@@ -96,7 +100,6 @@
 
 //checkbox
 .agree-box {
-    // border: 1px solid red;
     display: flex;
     margin-top: 15px;
     position: relative;
@@ -166,8 +169,6 @@
         height: 12px;
         border: solid white;
         border-width: 0 3px 3px 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
         transform: rotate(45deg);
 }
 
