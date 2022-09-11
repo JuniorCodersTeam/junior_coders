@@ -1,31 +1,38 @@
 import { Logo } from "../Navbar/Logo"
-// import { Link } from "next/link";
-// import { Image } from "next/image"
+import  Link  from "next/link";
+import  Image  from "next/image";
 
-const AboutUs = () => {
 
+const AboutUs = ({author}) => {
+    const authors = author;
+
+console.log(authors, "komponent")
     return (
+        
         <section className="aboutUs" id="aboutUs">
             <Logo />
 
             <article className="aboutUs-team">
-                {/* <Link>
-                    <a>
-                        tutaj będzie okrągłe zdjęcie
-                    </a>
-                </Link> */}
 
-                {/* <Link>
+                {authors.map((item) => {
+                    return (
+                        <>
+                        <Link key={item.sys.id} href="/" passHref>
                     <a>
-                        tutaj będzie okrągłe zdjęcie
-                    </a>
-                </Link>
 
-                <Link href="/">
-                    <a>
-                        tutaj będzie okrągłe zdjęcie
+                        <Image loader={() => item.fields.photo.fields.file.url}
+                            src={item.fields.photo.fields.file.url}
+                            alt={item.fields.photo.fields.description}
+                            width={100}
+                            height={100}  
+                        />
+
                     </a>
-                </Link> */}
+                        </Link>
+                        </>
+                        
+                    )
+                })}
 
             </article>
 
