@@ -9,11 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.7.0",
     "@next/eslint-plugin-next": "^12.2.5",
+    "contentful": "^9.1.34",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.4.0"
+    "react-icons": "^4.4.0",
+    "sweetalert2": "^11.4.32"
   },
   "devDependencies": {
     "eslint": "^8.22.0",
