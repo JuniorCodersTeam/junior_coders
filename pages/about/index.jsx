@@ -1,4 +1,4 @@
-import { Logo } from "../../components/Logo";
+import {AboutUs} from "../../components/layout/AboutUs";
 
 const AboutUs = () => {
   return (

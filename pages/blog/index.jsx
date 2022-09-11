@@ -1,8 +1,30 @@
-const blog = () => {
+import { createClient } from "contentful";
+import { BlogCard } from "../../components/Blog/BlogCard";
+
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+  });
+
+  const { items: posts } = await client.getEntries({
+    content_type: "blogPosts",
+  });
+
+  return {
+    props: {
+      posts,
+    },
+    revalidate: 30,
+  };
+}
+
+const blog = ({ posts }) => {
   return (
-    <div>
-      <p>tu będzie strona bloga z postami</p>
-      <div> test</div>
+    <div className="blog">
+      {posts.map((post) => (
+        <BlogCard post={post} key={post.sys.id} />
+      ))}
     </div>
   );
 };

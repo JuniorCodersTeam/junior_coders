@@ -1,0 +1,59 @@
+@import "./sass/utilities/mixins";
+
+
+.blog-card {
+  max-width: 24rem;
+  margin: 2rem;
+  box-shadow: 2px -1px 24px -5px rgba(66, 68, 90, 1);
+  border-radius: 0.8rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: fit-content;
+
+  h1 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: -.04rem;
+    margin: 1rem .5rem 0;
+  }
+
+  & >p {
+    margin: .8rem;
+    font-weight: 300;
+    font-size: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 4rem;
+  }
+
+
+  &--actions {
+    margin: .8rem;
+    width: 100%;
+  }
+
+  &--author {
+    display: flex;
+    align-items: center;
+    margin-bottom: .8rem;
+
+    div {
+      margin-left: .7rem;
+    }
+    div>p {
+      font-size: 1rem;
+    }
+    div>span {
+      font-size: .8rem;
+      color: $secondary-gray;
+    }
+    img {
+      border-radius: 50%;
+    }
+  }
+
+}
