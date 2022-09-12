@@ -3,10 +3,6 @@
 .projects-container {
     @extend .container;
     @extend .min-height-screen;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
     background-image: url(../../pages/contact/background_bottom.png);
     background-position: center bottom;
     background-size: cover;
