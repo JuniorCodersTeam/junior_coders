@@ -38,7 +38,7 @@ export const BlogCard = ({ post }) => {
             <span>{formattedData}</span>
           </div>
         </div>
-        <Button link={slug} />
+        <Button current="blog" link={slug} />
       </div>
     </div>
   );

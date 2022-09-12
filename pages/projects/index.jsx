@@ -1,4 +1,5 @@
 import { createClient } from "contentful";
+import { ProjectCard } from "../../components/Projects/ProjectCard";
 
 export async function getStaticProps() {
     const client = createClient({
@@ -22,6 +23,15 @@ const Projects = ({ projects }) => {
     return (
         <div className="projects-container">
             <h2 className="projects-title">Nasze projekty</h2>
+            <div className="project-cards">
+            {projects.map((project) => (
+                <ProjectCard 
+                    project={project}     
+                    key={project.sys.id} 
+                />
+            ))}
+            </div>
+            
         </div>
     );
 };
