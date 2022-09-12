@@ -18,8 +18,6 @@ export async function getStaticProps() {
 
 const Projects = ({ projects }) => {
 
-    console.log(projects)
-
     return (
         <div className="projects-container">
             <h2 className="projects-title">Nasze projekty</h2>
