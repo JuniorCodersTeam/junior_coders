@@ -71,13 +71,13 @@
 
 //SECTION TITLE
 .section-title {
-  margin-top: 4rem;
+  padding-top: 3rem;
   font-size: 1.5rem;
   font-style: italic;
   color: $secondary-gray;
   text-align: center;
   @include md {
       font-size: 2rem;
-      margin-top: 5rem;
+      padding-top: 4rem;
   }
 }
