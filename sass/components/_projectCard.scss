@@ -47,7 +47,10 @@
         }
     }
     &--action {
+        // border: 1px solid red;
         margin: 1rem;
-        width: 100%
+        width: calc(100% - 2rem);
+        display: flex;
+        justify-content: flex-end;
     }
 }
