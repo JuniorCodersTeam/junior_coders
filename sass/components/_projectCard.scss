@@ -13,6 +13,11 @@
     align-items: flex-start;
     height: fit-content;
     color: $secondary-gray;
+    .title-bar {
+        width: 100%;
+        background-color: $primary-yellow;
+        padding-bottom: 1rem;
+    }
     h2 {
         font-size: 1.3rem;
         font-weight: 600;

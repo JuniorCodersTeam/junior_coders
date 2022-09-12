@@ -22,7 +22,10 @@ export const ProjectCard = ({ project }) => {
             objectFit="cover"
             objectPosition="top"
         />
-        <h2>{title}</h2>
+        <div className="title-bar">
+            <h2>{title}</h2>
+        </div>
+        
         <p>{description}</p>
         <div className="technologies">
             <h3>Technologie:</h3>
