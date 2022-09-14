@@ -1,12 +1,25 @@
-@import "utilities/variables";
-@import "utilities/mixins";
-
 @import "base/_reset.scss";
 @import "base/typography";
 
-@import "layout/logo";
+@import "utilities/variables";
+@import "utilities/mixins";
+
+
+@import "components/logo";
+@import "components/buttons";
+@import "components/blogCard";
+@import "components/projectCard";
+
+@import"layout/navbar";
+@import"layout/footer";
+
 
 @import"components/navbar";
 @import"components/footer";
 
 @import "./pages/about";
+@import "pages/contact";
+@import "pages/banner";
+@import "pages/about";
+@import "pages/projects";
+@import "pages/blog";

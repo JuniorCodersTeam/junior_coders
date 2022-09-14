@@ -1,5 +1,5 @@
 @import "variables";
-
+@import "../components/logo";
 //DEVICES
 
 // Small devices
@@ -37,29 +37,47 @@
 }
 
 
-//CONTAINER
 
 .container {
-  width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  @include sm {
+    max-width: $screen-sm-min;
+  }
+  @include md {
+    max-width: $screen-md-min;
+  }
+  @include lg {
+    max-width: $screen-lg-min;
+  }
+  @include xl {
+    max-width: $screen-xl-min;
+  }
+  @include xxl {
+    max-width: $screen-2xl-min;
+  }
+
 }
 
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px
-  }
+//SHADOW bottom
+.shadow-bottom {
+  box-shadow: 0 5px 5px -5px #333;
 }
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px
-  }
+
+//MIN HEIGHT SCREEN
+.min-height-screen {
+  min-height: calc(100vh - 6rem - 145.59px);
 }
-@media (min-width: 1024px) {
-  .container {
-    max-width:1024px
-  }
-}
-@media (min-width: 1280px) {
-  .container {
-    max-width:1280px
+
+//SECTION TITLE
+.section-title {
+  padding-top: 3rem;
+  font-size: 1.5rem;
+  font-style: italic;
+  color: $secondary-gray;
+  text-align: center;
+  @include md {
+      font-size: 2rem;
+      padding-top: 4rem;
   }
 }
