@@ -13,6 +13,11 @@
 @import"layout/navbar";
 @import"layout/footer";
 
+
+@import"components/navbar";
+@import"components/footer";
+
+@import "./pages/about";
 @import "pages/contact";
 @import "pages/banner";
 @import "pages/about";
