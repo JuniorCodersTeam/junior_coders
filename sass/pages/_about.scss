@@ -7,6 +7,12 @@
     color: $secondary-gray;
 }
 
+.aboutUs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .aboutUs-team {
     display: flex;
     flex-direction: column;
