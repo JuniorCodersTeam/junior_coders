@@ -1,4 +1,4 @@
-import { Logo } from "../Navbar/Logo"
+import { Logo } from "../../Logo"
 import  Link  from "next/link";
 import  Image  from "next/image";
 
