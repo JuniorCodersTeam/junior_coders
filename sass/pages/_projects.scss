@@ -1,0 +1,21 @@
+@import "./sass/utilities/mixins";
+
+.projects-container {
+    @extend .container;
+    @extend .min-height-screen;
+    background-image: url(../../pages/contact/background_bottom.png);
+    background-position: center bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    .project-cards {
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+}
+
+.projects-title {
+    @extend .section-title
+}

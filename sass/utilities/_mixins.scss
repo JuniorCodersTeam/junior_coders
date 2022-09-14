@@ -68,3 +68,16 @@
 .min-height-screen {
   min-height: calc(100vh - 6rem - 145.59px);
 }
+
+//SECTION TITLE
+.section-title {
+  padding-top: 3rem;
+  font-size: 1.5rem;
+  font-style: italic;
+  color: $secondary-gray;
+  text-align: center;
+  @include md {
+      font-size: 2rem;
+      padding-top: 4rem;
+  }
+}
