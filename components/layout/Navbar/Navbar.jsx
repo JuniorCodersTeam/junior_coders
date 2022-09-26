@@ -36,7 +36,7 @@ const Navbar = () => {
           {menuItems.map((item) => (
             <li key={item.title}>
               <Link href={item.link}>
-                <a className={router.pathname == item.link ? "active" : ""}>{item.title}</a>
+                <a className={router.pathname.includes(item.link) ? "active" : ""}>{item.title}</a>
               </Link>
             </li>
           ))}
@@ -47,7 +47,7 @@ const Navbar = () => {
           {menuItems.map((item) => (
             <li key={item.title} className="flex justify-center">
               <Link href={item.link}>
-                <a className={router.pathname == item.link ? "active" : ""} onClick={openCloseHamburger}>{item.title}</a>
+                <a className={router.pathname.includes(item.link) ? "active" : ""} onClick={openCloseHamburger}>{item.title}</a>
               </Link>
             </li>
           ))}
