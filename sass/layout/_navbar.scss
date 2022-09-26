@@ -55,10 +55,10 @@
       text-decoration: none;
       text-transform: uppercase;
       line-height: 1.25;
-      letter-spacing: -.05rem;
+      letter-spacing: .01rem;
 
       &:hover {
-        opacity: .75;
+        opacity: 0.5;
       }
     }
   }
@@ -79,4 +79,8 @@
     align-items: center;
     flex-direction: column;
   }
+}
+
+.active {
+  opacity: 0.5;
 }
