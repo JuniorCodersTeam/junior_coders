@@ -1,5 +1,8 @@
 import {createClient} from "contentful";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import { BsChevronRight } from "react-icons/bs";
+import Projects from "..";
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -27,13 +30,36 @@ export const getStaticProps = async({params}) => {
 }
 
 const Project = ({project}) => {
+
+    const router = useRouter()
+    const path = router.asPath.replaceAll("/", " ").split(" ").slice(1)
+
+    console.log(router.asPath.replaceAll("/", " ").split(" ").slice(1))
     console.log(project)
-    console.log(useRouter())
 
 
     return (
-        <div>Projekt</div>
+        <>
+        
+        <div className="projects-container">
+            <div className="path-links">
+                <Link href="/"><span className="path-link">home</span></Link>
+                <BsChevronRight className="back-icon" />
+                <span className="path-link" onClick={() => router.back()}>{path[0]}</span>
+                <BsChevronRight className="back-icon" />
+                <span className="path-link" onClick={() => router.reload()}>{path[1]}</span>
+            </div>
+            <h2 className="projects-title">{project[0].fields.title}</h2>
+            
+            {/* <button type="button" onClick={() => router.back()}>
+                Click here to go back
+            </button> */}
+        </div>
+            
+        </>
+        
     )
 }
 
 export default Project;
+
