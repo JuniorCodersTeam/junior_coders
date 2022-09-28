@@ -21,7 +21,7 @@ console.log(authors, "komponent")
                         {/* co wrzucić żeby się link wyświetlał poprawnie */}
                         <Link 
                             key={item.sys.id}
-                            href="/" 
+                            href={`/about/${item.fields.slug}`}
                             passHref
                             >
                     <a>

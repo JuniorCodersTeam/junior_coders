@@ -1,4 +1,5 @@
 import {createClient} from "contentful";
+import Image from "next/image";
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -19,16 +20,40 @@ export const getStaticPaths = async() => {
     return {paths, fallback: false}
 }
 
-export async function getStaticProps() {
-    const {items: authors} = await client.getEntries({content_type: "author"})
-    
-    return {props: {authors}}
+export async function getStaticProps({params}) {
+    const {items} = await client.getEntries( {
+        content_type: "author",
+        "fields.slug": params.slug
+    })
+    console.log(items)
+    return {props: {items}}
 }
 
-const Author = ({authors}) => {
 
+const Author = ({items}) => {
+    console.log(items[0].fields)
     return (
-        <div> dupa </div>
+        <>
+        <div className="container author-container">
+
+            <h1>O mnie</h1>
+
+            <section className="author">
+                <Image 
+                    loader={() => items[0].fields.photo.fields.file.url }
+                    src={items[0].fields.photo.fields.file.url}
+                    alt={items[0].fields.photo.fields.description}
+                    width={100}
+                    height={100}  
+                    className="photo"
+                />
+
+                <div className="author-content">
+                    <p>{items[0].fields.about}</p>
+                </div>
+            </section>
+        </div>
+        </>
     )
 
 }
