@@ -2,6 +2,7 @@ import {createClient} from "contentful";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { BsChevronRight } from "react-icons/bs";
+import Image from "next/image";
 import Projects from "..";
 
 const client = createClient({
@@ -30,17 +31,22 @@ export const getStaticProps = async({params}) => {
 }
 
 const Project = ({project}) => {
+    const {
+        title,
+        slug,
+        image,
+        description,
+        technologies
+        } = project[0].fields;
 
     const router = useRouter()
     const path = router.asPath.replaceAll("/", " ").split(" ").slice(1)
 
-    console.log(router.asPath.replaceAll("/", " ").split(" ").slice(1))
     console.log(project)
 
 
     return (
         <>
-        
         <div className="projects-container">
             <div className="path-links">
                 <Link href="/"><span className="path-link">home</span></Link>
@@ -49,17 +55,33 @@ const Project = ({project}) => {
                 <BsChevronRight className="back-icon" />
                 <span className="path-link" onClick={() => router.reload()}>{path[1]}</span>
             </div>
-            <h2 className="projects-title">{project[0].fields.title}</h2>
+            <h2 className="projects-title">{title}</h2>
+            <div className="project-detail-container">
+                <div className="project-detail-image">
+                    <Image
+                        alt={image.fields.title}
+                        src={`https:${image.fields.file.url}`}
+                        // width="500"
+                        // height="300"
+                        layout="fill"
+                        objectFit="cover"
+                    />
+                </div>
+                <div className="project-detail-info">
+                    <p>{description}</p>
+                    <h3>Technologie</h3>
+                    <p>{technologies}</p>
+                    <button>Projekt Live</button>
+                    <button>GitHub</button>
+                </div>
             
-            {/* <button type="button" onClick={() => router.back()}>
-                Click here to go back
-            </button> */}
-        </div>
-            
+            </div>
+        </div>    
         </>
         
     )
 }
 
 export default Project;
+
 

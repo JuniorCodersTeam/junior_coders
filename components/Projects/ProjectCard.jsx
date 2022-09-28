@@ -7,7 +7,7 @@ export const ProjectCard = ({ project }) => {
         slug,
         image,
         description,
-        technologies
+        technologies,
         } = project.fields;
 
 
