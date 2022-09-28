@@ -43,8 +43,8 @@ const Author = ({items}) => {
                     loader={() => items[0].fields.photo.fields.file.url }
                     src={items[0].fields.photo.fields.file.url}
                     alt={items[0].fields.photo.fields.description}
-                    width={100}
-                    height={100}  
+                    width={200}
+                    height={200}  
                     className="photo"
                 />
 
