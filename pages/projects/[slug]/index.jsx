@@ -2,6 +2,7 @@ import {createClient} from "contentful";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { BsChevronRight } from "react-icons/bs";
+import { BsArrowRightShort } from "react-icons/bs";
 import Image from "next/image";
 import Projects from "..";
 
@@ -55,7 +56,6 @@ const Project = ({project}) => {
                 <BsChevronRight className="back-icon" />
                 <span className="path-link" onClick={() => router.reload()}>{path[1]}</span>
             </div>
-            <h2 className="projects-title">{title}</h2>
             <div className="project-detail-container">
                 <div className="project-detail-image">
                     <Image
@@ -66,13 +66,21 @@ const Project = ({project}) => {
                         layout="fill"
                         objectFit="cover"
                     />
+                    <h3 className="project-h3">{title}</h3>
                 </div>
                 <div className="project-detail-info">
-                    <p>{description}</p>
-                    <h3>Technologie</h3>
-                    <p>{technologies}</p>
-                    <button>Projekt Live</button>
-                    <button>GitHub</button>
+                    <p className="project-p">{description}</p>
+                    <h4 className="project-h4">Technologie:</h4>
+                    <p className="project-p">{technologies}</p>
+                    <div className="project-detail-buttons">
+                        <Link href="/projects">
+                            <span className="project-detail-link btn">Projekt Live<BsArrowRightShort className="arrow-icon" /></span>
+                        </Link>
+                        <Link href="/projects">
+                            <span className="project-detail-link btn">GitHub<BsArrowRightShort className="arrow-icon" /></span>
+                        </Link>
+                    </div>
+                    
                 </div>
             
             </div>

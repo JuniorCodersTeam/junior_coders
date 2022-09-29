@@ -23,9 +23,9 @@
 
 .path-links {
     width: fit-content;
-    margin: 1rem auto -2rem;
+    margin: 1rem auto;
     @include md {
-        margin: 1rem 0.5rem -2rem;
+        margin: 1rem 0.5rem;
     }
 }
 
@@ -51,17 +51,18 @@
 //dynamic pages
 .project-detail-container {
     * {
-        border: 1px solid pink;
+        // border: 1px solid pink;
     }
-    border: 1px solid pink;
+    // border: 1px solid pink;
     margin: 0 auto;
-    margin-top: 1rem;
+    margin-top: 2rem;
     width: 90%;
     display:flex;
     flex-direction: column;
     @include lg {
         flex-direction: row;
         width: 80%;
+        margin-top: 5rem;
     }
     .project-detail-image {
         position: relative;
@@ -80,6 +81,52 @@
     }
     .project-detail-info {
         width: 100%;
+        padding: 1rem 0;
+        @include lg {
+            padding: 0 0 0 2rem;
+        }
+        .project-h4 {
+            font-size: 1rem;
+            font-style: italic;
+            color: $secondary-gray;
+            margin-top: 1rem;
+        }
+        .project-p {
+            color:$secondary-gray;
+            line-height: 1.2rem;
+        }
+    }
+}
+
+.project-h3 {
+    font-size: 2rem;
+    font-style: italic;
+    color: white;
+    background-color: $primary-yellow;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    opacity: 0.8;
+    padding: 1rem;
+    @include lg {
+        font-size: 3rem;
+        top: 0;
+        bottom:auto;
         padding: 1rem;
+    }
+}
+
+.project-detail-buttons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    @include lg {
+        justify-content: flex-end;
+    }
+    .project-detail-link:not(:nth-of-type(1)) {
+        margin-left: 1rem;
+    }
+    .project-detail-link {
+        cursor: pointer;
     }
 }
