@@ -18,11 +18,6 @@ export async function getStaticProps() {
 
 const Projects = ({ projects }) => {
 
-    // console.log(projects)
-    // console.log(projects.sort(function(a, b) {
-    //     return a.fields.order - b.fields.order 
-    // }))
-
     return (
         <div className="projects-container">
             <h2 className="projects-title">Nasze projekty</h2>

@@ -43,8 +43,6 @@ const Project = ({project}) => {
     const router = useRouter()
     const path = router.asPath.replaceAll("/", " ").split(" ").slice(1)
 
-    console.log(project)
-
 
     return (
         <>
@@ -61,8 +59,6 @@ const Project = ({project}) => {
                     <Image
                         alt={image.fields.title}
                         src={`https:${image.fields.file.url}`}
-                        // width="500"
-                        // height="300"
                         layout="fill"
                         objectFit="cover"
                     />
