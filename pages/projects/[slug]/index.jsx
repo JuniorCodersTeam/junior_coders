@@ -1,5 +1,10 @@
 import {createClient} from "contentful";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import { BsChevronRight } from "react-icons/bs";
+import { BsArrowRightShort } from "react-icons/bs";
+import Image from "next/image";
+import Projects from "..";
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -27,13 +32,60 @@ export const getStaticProps = async({params}) => {
 }
 
 const Project = ({project}) => {
-    console.log(project)
-    console.log(useRouter())
+    const {
+        title,
+        slug,
+        image,
+        description,
+        technologies
+        } = project[0].fields;
+
+    const router = useRouter()
+    const path = router.asPath.replaceAll("/", " ").split(" ").slice(1)
 
 
     return (
-        <div>Projekt</div>
+        <>
+        <div className="projects-container">
+            <div className="path-links">
+                <Link href="/"><span className="path-link">home</span></Link>
+                <BsChevronRight className="back-icon" />
+                <span className="path-link" onClick={() => router.back()}>{path[0]}</span>
+                <BsChevronRight className="back-icon" />
+                <span className="path-link" onClick={() => router.reload()}>{path[1]}</span>
+            </div>
+            <div className="project-detail-container">
+                <div className="project-detail-image">
+                    <Image
+                        alt={image.fields.title}
+                        src={`https:${image.fields.file.url}`}
+                        layout="fill"
+                        objectFit="cover"
+                    />
+                    <h3 className="project-h3">{title}</h3>
+                </div>
+                <div className="project-detail-info">
+                    <p className="project-p">{description}</p>
+                    <h4 className="project-h4">Technologie:</h4>
+                    <p className="project-p">{technologies}</p>
+                    <div className="project-detail-buttons">
+                        <Link href="/projects">
+                            <span className="project-detail-link btn">Projekt Live<BsArrowRightShort className="arrow-icon" /></span>
+                        </Link>
+                        <Link href="/projects">
+                            <span className="project-detail-link btn">GitHub<BsArrowRightShort className="arrow-icon" /></span>
+                        </Link>
+                    </div>
+                    
+                </div>
+            
+            </div>
+        </div>    
+        </>
+        
     )
 }
 
 export default Project;
+
+
