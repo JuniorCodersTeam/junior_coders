@@ -7,9 +7,11 @@ export async function getStaticProps() {
         accessToken: process.env.CONTENTFUL_ACCESS_KEY,
     });
 
-    const { items: projects } = await client.getEntries({
+    const { items } = await client.getEntries({
         content_type: "projects",
     });
+
+    const projects  = items.sort((a,b) => a.fields.order - b.fields.order) 
 
     return {
         props: { projects }
