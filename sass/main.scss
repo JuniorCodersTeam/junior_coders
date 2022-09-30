@@ -18,3 +18,9 @@
 @import "pages/about";
 @import "pages/projects";
 @import "pages/blog";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}

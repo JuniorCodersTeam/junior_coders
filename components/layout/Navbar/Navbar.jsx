@@ -4,10 +4,12 @@ import Link from "next/link";
 import { Logo } from "../../Logo";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { menuItems } from "./menuItems";
+import { useRouter } from 'next/router';
 
 const Navbar = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const refNavbar = useRef(null);
+  const router = useRouter();
 
   useOnClickOutside(refNavbar, () => setModalOpen(false));
 
@@ -34,7 +36,7 @@ const Navbar = () => {
           {menuItems.map((item) => (
             <li key={item.title}>
               <Link href={item.link}>
-                <a>{item.title}</a>
+                <a className={router.pathname.includes(item.link) ? "active" : ""}>{item.title}</a>
               </Link>
             </li>
           ))}
@@ -45,7 +47,7 @@ const Navbar = () => {
           {menuItems.map((item) => (
             <li key={item.title} className="flex justify-center">
               <Link href={item.link}>
-                <a onClick={openCloseHamburger}>{item.title}</a>
+                <a className={router.pathname.includes(item.link) ? "active" : ""} onClick={openCloseHamburger}>{item.title}</a>
               </Link>
             </li>
           ))}
