@@ -24,7 +24,7 @@ const Projects = ({ projects }) => {
         <div className="projects-container">
             <h2 className="projects-title">Nasze projekty</h2>
             <div className="project-cards">
-            {projects.sort((a,b) => a.fields.order - b.fields.order).map((project) => (
+            {projects.map((project) => (
                 <ProjectCard 
                     project={project}     
                     key={project.sys.id} 
