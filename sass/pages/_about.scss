@@ -5,6 +5,10 @@
     justify-content: center;
     align-items: center;
     color: $secondary-gray;
+        background-image: url(../../pages/contact/background_bottom.png);
+        background-position: center bottom;
+        background-size: cover;
+        background-repeat: no-repeat;
 }
 
 .aboutUs-container {

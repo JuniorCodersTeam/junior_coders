@@ -45,6 +45,7 @@ const Author = ({items, projects, foundProjects}) => {
 
     return (
         <>
+        <div className="author-bg">
         <div className="container author-container">
 
             <h1>{items[0].fields.author}</h1>
@@ -94,6 +95,7 @@ const Author = ({items, projects, foundProjects}) => {
 </div>
             </section>
             
+        </div>
         </div>
         </>
     )

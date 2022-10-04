@@ -27,6 +27,13 @@
     }
 }
 
+.author-bg {
+        background-image: url(../../pages/contact/background_bottom.png);
+        background-position: center bottom;
+        background-size: cover;
+        background-repeat: no-repeat;
+}
+
 // @media (min-width: 640px) {
 //     .author {
 //         flex-direction: row-reverse;
