@@ -5,6 +5,7 @@ import { Logo } from "../../Logo";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { menuItems } from "./menuItems";
 import { useRouter } from 'next/router';
+import ThemeSwitch from './ThemeSwitch'
 
 const Navbar = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -16,6 +17,7 @@ const Navbar = () => {
   function openCloseHamburger() {
     setModalOpen((prev) => !prev);
   }
+  
   return (
     <nav ref={refNavbar} className="nav">
       <div className="nav--menu-desktop">
@@ -31,7 +33,7 @@ const Navbar = () => {
             {isModalOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
           </button>
         </div>
-
+        
         <ul className="nav--items-desktop">
           {menuItems.map((item) => (
             <li key={item.title}>
@@ -53,6 +55,7 @@ const Navbar = () => {
           ))}
         </ul>
       )}
+      <ThemeSwitch />
     </nav>
   );
 };

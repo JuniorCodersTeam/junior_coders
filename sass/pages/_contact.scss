@@ -18,6 +18,10 @@
     @extend .container;
 }
 
+[data-theme='dark'] .contact {
+    background-image: url(../../pages/contact/background_bottom_dark.png);
+}
+
 .contact-form-title {
     @extend .section-title
 }
@@ -51,6 +55,13 @@
             color: rgba(128, 128, 128, 0.589);
             font-family: 'Prompt', sans-serif;
         }
+    }
+}
+
+[data-theme='dark'] input,
+[data-theme='dark'] textarea {
+    &::placeholder {
+        color: rgba(231,231,231);
     }
 }
 

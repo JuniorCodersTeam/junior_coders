@@ -89,9 +89,20 @@
   }
 }
 
-.active {
-  color: $primary-yellow;
-  &:hover {
-    color: $secondary-gray
+[data-theme='dark'] .nav {
+  @include logoTextColor(white);
+  
+  background-color: #202020;
+  a {
+    color: white;
+  }
+  .active {
+    color: $primary-yellow;
   }
 }
+
+.active {
+  color: $primary-yellow;
+}
+
+

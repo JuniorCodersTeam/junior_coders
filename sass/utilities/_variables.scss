@@ -17,3 +17,20 @@ $screen-2xl-min: 1536px;
 $primary-yellow: #FFD100;
 $secondary-gray: #707070;
 $background-white-cream: #EFEFEF;
+
+html,
+body {
+    color: #707070;
+    background: #fff;
+}
+
+[data-theme='dark'],
+[data-theme='dark'] body {
+    color: rgb(231, 231, 231);
+    background: black;
+}
+
+[data-theme='dark'] body {
+    $secondary-gray: white;
+    $background-white-cream: #707070;
+}
