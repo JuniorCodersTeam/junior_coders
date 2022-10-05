@@ -20,7 +20,11 @@ const Navbar = () => {
   
   return (
     <nav ref={refNavbar} className="nav">
+      
       <div className="nav--menu-desktop">
+        <div className="theme-switch-container">
+          <ThemeSwitch />
+        </div>
         <Link href="/" passHref>
           <a onClick={() => isModalOpen && setModalOpen(false)}>
             <div className="nav--logo-wrapper">
@@ -28,6 +32,8 @@ const Navbar = () => {
             </div>
           </a>
         </Link>
+        
+        
         <div className="nav--menu-wrapper">
           <button type="button" aria-label="menu" onClick={openCloseHamburger}>
             {isModalOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
@@ -55,7 +61,7 @@ const Navbar = () => {
           ))}
         </ul>
       )}
-      <ThemeSwitch />
+      
     </nav>
   );
 };

@@ -1,15 +1,17 @@
 import { Logo } from "./Logo";
 import Image from "next/image";
+import { useState, useEffect } from 'react'
+import { useTheme } from 'next-themes'
 
 export const Banner = ({ resBanner }) => {
+  const { theme, setTheme } = useTheme()
+
+  console.log(resBanner)
   return (
     <>
       <div className="banner-container">
         <Image
-          src={resBanner[0].fields.bannerImage.fields.file.url.replace(
-            "//",
-            "https://"
-          )}
+          src={theme === 'light' ? `https:${resBanner[0].fields.bannerImage.fields.file.url}` : `https:${resBanner[0].fields.bannerImageDark.fields.file.url}`}
           alt="Banner image"
           layout="fill"
           objectFit="cover"

@@ -1,4 +1,5 @@
 @import "./../utilities/mixins";
+@import "./../utilities/variables";
 
 .d-none {
     display: none;
@@ -153,6 +154,14 @@
 .agree-box input:checked ~ .checkmark {
     background-color: $primary-yellow;
     }
+
+.agree-box input:checked ~ label {
+        color: $secondary-gray;
+    }
+
+[data-theme='dark'] .agree-box input:checked ~ label {
+    color: $background-white-cream;
+}
 
 .checkmark:after {
     content: "";
