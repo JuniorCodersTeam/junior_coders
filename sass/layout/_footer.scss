@@ -2,7 +2,7 @@
 @import "./sass/utilities/mixins";
 
 .footer {
-    min-height: 10vh;
+    // min-height: 8vh;
     background-color: $background-white-cream;
     // display: flex;
     // justify-content: center;
@@ -19,6 +19,7 @@
         @include logoTextColor(black);
         height: 4rem;
         width: 4rem;
+        margin-left: 10px;
 }
 
 .footer-content {
@@ -26,7 +27,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 0;
+    padding: 1rem 0;
 }
 
 .footer-socials {
@@ -39,11 +40,10 @@
 .footer-copyright {
     font-size: 0.5rem;
     color: $secondary-gray;
-    padding: 0.3rem 0;
+    padding-bottom: 0.3rem
 }
 
 [data-theme='dark'] .footer {
     @include logoTextColor(white);
-    
     background-color: #202020;
 }

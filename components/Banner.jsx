@@ -6,7 +6,6 @@ import { useTheme } from 'next-themes'
 export const Banner = ({ resBanner }) => {
   const { theme, setTheme } = useTheme()
 
-  console.log(resBanner)
   return (
     <>
       <div className="banner-container">

@@ -17,10 +17,12 @@
 
 .contact-container {
     @extend .container;
+    @extend .min-height-screen;
 }
 
 [data-theme='dark'] .contact {
     background-image: url(../../pages/contact/background_bottom_dark.png);
+    mix-blend-mode: exclusion;
 }
 
 .contact-form-title {

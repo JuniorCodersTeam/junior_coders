@@ -28,8 +28,8 @@
 
   &--logo-wrapper {
     width: auto;
-    padding: 5px 0;
-    height: 6rem;
+    padding: 10px 10px;
+    height: 8rem;
     position: relative;
   }
 
@@ -111,14 +111,22 @@
 
 .theme-switch-container {
   position: absolute;
-  top: 7px;
+  width: 30px;
+  text-align: center;
+  font-size: 1.2rem;
+  border-bottom: 1px solid $primary-yellow;
+  top: 1rem;
   right: 10px;
-  opacity: 0.3;
   select {
     border: none;
   }
   .theme-icon {
-    color: rgba($secondary-gray, 0.9)
+    cursor: pointer;
+    color: lightgray;
+    opacity: 0.5;
+  }
+  .theme-icon-light {
+    color: $secondary-gray;
   }
   
 }

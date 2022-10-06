@@ -17,7 +17,7 @@ const ThemeSwitch = () => {
     
     return (
         <>
-            {theme === 'dark' ? <BsFillBrightnessHighFill onClick={()=>setTheme('light')}/> : <BsFillMoonFill className='theme-icon' onClick={()=>setTheme('dark')}/>}
+            {theme === 'dark' ? <BsFillBrightnessHighFill className='theme-icon'  onClick={()=>setTheme('light')}/> : <BsFillMoonFill className='theme-icon theme-icon-light' onClick={()=>setTheme('dark')}/>}
             
             {/* <select value={theme} onChange={e => setTheme(e.target.value)}>
                 <option value="system">System</option>

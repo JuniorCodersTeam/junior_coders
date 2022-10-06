@@ -7,7 +7,7 @@
     @extend .min-height-screen;
     background-image: url(../../pages/contact/background_bottom.png);
     background-position: center bottom;
-    background-size: contain;
+    background-size: auto;
     background-repeat: no-repeat;
     .project-cards {
         display: flex;
@@ -20,6 +20,7 @@
 
 [data-theme='dark'] .projects-container {
     background-image: url(../../pages/contact/background_bottom_dark.png);
+    mix-blend-mode: exclusion;
 }
 
 .projects-title {
