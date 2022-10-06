@@ -4,7 +4,7 @@ import  Image  from "next/image";
 
 
 const AboutUs = ({author}) => {
-    const authors = author;
+    const authors = author.filter(el => el.fields.author != "Junior Coders");
 
     return (
         
