@@ -6,7 +6,6 @@ import  Image  from "next/image";
 const AboutUs = ({author}) => {
     const authors = author;
 
-console.log(authors, "komponent")
     return (
         
         <section className="aboutUs" id="aboutUs">
