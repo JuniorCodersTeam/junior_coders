@@ -27,9 +27,9 @@ console.log(authors, "komponent")
                     <a>
                         {/* stylowanie w Image? */}
                         <Image 
-                            loader={() => item.fields.photo.fields.file.url }
-                            src={item.fields.photo.fields.file.url}
-                            alt={item.fields.photo.fields.description}
+                            loader={() => item.fields.photo?.fields.file.url }
+                            src={item.fields.photo?.fields.file.url}
+                            alt={item.fields.photo?.fields.description}
                             width={100}
                             height={100}  
                             className="photo"

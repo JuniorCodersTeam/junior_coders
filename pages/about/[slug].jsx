@@ -52,9 +52,9 @@ const Author = ({items, projects, foundProjects}) => {
 
             <section className="author">
                 <Image 
-                    loader={() => items[0].fields.photo.fields.file.url }
-                    src={items[0].fields.photo.fields.file.url}
-                    alt={items[0].fields.photo.fields.description}
+                    loader={() => items[0].fields.photo?.fields.file.url }
+                    src={items[0].fields.photo?.fields.file.url}
+                    alt={items[0].fields.photo?.fields.description}
                     width={200}
                     height={200}  
                     className="photo"
