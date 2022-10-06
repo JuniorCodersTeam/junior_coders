@@ -31,7 +31,7 @@ export async function getStaticProps({params}) {
         content_type: "projects",
     })
 // wyskakuje undefined bo nie wszystkie projekty mają dodanego autora
-    const foundProjects = projects.filter(el => el.fields.author.fields.author == items[0].fields.author)
+    const foundProjects = projects.filter(el => el.fields?.author.fields.author == items[0].fields.author)
 
 
     console.log(items, projects, foundProjects)
