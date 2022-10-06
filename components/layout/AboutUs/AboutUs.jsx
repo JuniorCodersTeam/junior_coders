@@ -21,15 +21,15 @@ console.log(authors, "komponent")
                         {/* co wrzucić żeby się link wyświetlał poprawnie */}
                         <Link 
                             key={item.sys.id}
-                            href="/" 
+                            href={`/about/${item.fields.slug}`}
                             passHref
                             >
                     <a>
                         {/* stylowanie w Image? */}
                         <Image 
-                            loader={() => item.fields.photo.fields.file.url }
-                            src={item.fields.photo.fields.file.url}
-                            alt={item.fields.photo.fields.description}
+                            loader={() => item.fields.photo?.fields.file.url }
+                            src={item.fields.photo?.fields.file.url}
+                            alt={item.fields.photo?.fields.description}
                             width={100}
                             height={100}  
                             className="photo"

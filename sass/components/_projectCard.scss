@@ -68,3 +68,9 @@
     background-color: #222;
     box-shadow: none;
 }
+
+.project-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
