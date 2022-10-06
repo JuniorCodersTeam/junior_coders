@@ -1,4 +1,5 @@
 @import "./../utilities/mixins";
+@import "./../utilities/variables";
 
 .d-none {
     display: none;
@@ -16,6 +17,12 @@
 
 .contact-container {
     @extend .container;
+    @extend .min-height-screen;
+}
+
+[data-theme='dark'] .contact {
+    background-image: url(../../pages/contact/background_bottom_dark.png);
+    mix-blend-mode: exclusion;
 }
 
 .contact-form-title {
@@ -51,6 +58,13 @@
             color: rgba(128, 128, 128, 0.589);
             font-family: 'Prompt', sans-serif;
         }
+    }
+}
+
+[data-theme='dark'] input,
+[data-theme='dark'] textarea {
+    &::placeholder {
+        color: rgba(231,231,231);
     }
 }
 
@@ -142,6 +156,14 @@
 .agree-box input:checked ~ .checkmark {
     background-color: $primary-yellow;
     }
+
+.agree-box input:checked ~ label {
+        color: $secondary-gray;
+    }
+
+[data-theme='dark'] .agree-box input:checked ~ label {
+    color: $background-white-cream;
+}
 
 .checkmark:after {
     content: "";

@@ -19,6 +19,7 @@
         padding-bottom: 1rem;
     }
     h2 {
+        color:$secondary-gray;
         font-size: 1.3rem;
         font-weight: 600;
         letter-spacing: -.04rem;
@@ -44,13 +45,26 @@
         p {
             margin-top: 0.5rem;
             font-size: 1rem;
+            min-height: 2rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
     }
     &--action {
-        // border: 1px solid red;
         margin: 1rem;
         width: calc(100% - 2rem);
         display: flex;
         justify-content: flex-end;
     }
+    @include md {
+        min-height: 559px;
+    }
+}
+
+[data-theme='dark'] .project-card {
+    color: rgb(231, 231, 231);
+    background-color: #222;
+    box-shadow: none;
 }
