@@ -29,8 +29,11 @@
   &--logo-wrapper {
     width: auto;
     padding: 10px 10px;
-    height: 6rem;
+    height: 5rem;
     position: relative;
+    @include lg {
+      height: 7rem;
+    }
   }
 
 
@@ -130,6 +133,7 @@
   }
   .theme-icon-light {
     color: $secondary-gray;
+    font-size: 0.8rem;
   }
   
 }

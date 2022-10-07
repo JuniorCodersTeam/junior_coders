@@ -1,14 +1,18 @@
 @import "./sass/utilities/mixins";
 @import "./sass/utilities/variables";
 
-
-.projects-container {
-    @extend .container;
-    @extend .min-height-screen;
+.projects-section {
     background-image: url(../../pages/contact/background_bottom.png);
     background-position: center bottom;
     background-size: auto;
     background-repeat: no-repeat;
+    padding-bottom: 1rem
+}
+
+.projects-container {
+    @extend .container;
+    @extend .min-height-screen;
+    
     .project-cards {
         display: flex;
         justify-content: center;
@@ -18,7 +22,7 @@
     }
 }
 
-[data-theme='dark'] .projects-container {
+[data-theme='dark'] .projects-section {
     background-image: url(../../pages/contact/background_bottom_dark.png);
     mix-blend-mode: exclusion;
 }

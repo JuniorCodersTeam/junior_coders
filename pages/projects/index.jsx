@@ -21,18 +21,20 @@ export async function getStaticProps() {
 const Projects = ({ projects }) => {
 
     return (
-        <div className="projects-container">
-            <h2 className="projects-title">Nasze projekty</h2>
-            <div className="project-cards">
-            {projects.map((project) => (
-                <ProjectCard 
-                    project={project}     
-                    key={project.sys.id} 
-                />
-            ))}
+        <section className="projects-section">
+            <div className="projects-container">
+                <h2 className="projects-title">Nasze projekty</h2>
+                <div className="project-cards">
+                {projects.map((project) => (
+                    <ProjectCard 
+                        project={project}     
+                        key={project.sys.id} 
+                    />
+                ))}
+                </div>
             </div>
-            
-        </div>
+        </section>
+        
     );
 };
 
