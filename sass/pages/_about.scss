@@ -5,11 +5,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: $secondary-gray;
+    // color: $secondary-gray;
         background-image: url(../../pages/contact/background_bottom.png);
         background-position: center bottom;
         background-size: cover;
         background-repeat: no-repeat;
+}
+
+[data-theme='dark'] .aboutUs {
+    background-image: url(../../pages/contact/background_bottom_dark.png);
+    mix-blend-mode: exclusion;
 }
 
 .aboutUs-container {
@@ -20,7 +25,11 @@
         height: 6rem;
         padding: 1rem;
     }
-    @include logoTextColor(black)
+    @include logoTextColor(black);
+}
+
+[data-theme='dark'] {
+    @include logoTextColor(white)
 }
 
 
@@ -49,6 +58,7 @@
         padding: 0.5rem;
         padding-bottom: 1rem;
         font-weight: bold;
+        color: $secondary-gray
     }
     @include lg {
         max-width: 860px; 

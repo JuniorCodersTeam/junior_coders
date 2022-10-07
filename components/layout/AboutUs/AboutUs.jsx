@@ -3,24 +3,24 @@ import  Link  from "next/link";
 import  Image  from "next/image";
 import { replaceHangingConjunctions } from "../../../hooks/replaceHangingConjunctions";
 
+const text1 = `Potrzeba matką wynalazku i taki jest też początek projektu JuniorCoders. 
+Poszukując pomysłów na rozwój, każdy z naszej trójki spotykał się z podobnymi problemami. 
+Jak pogodzić aktualną pracę z marzeniem o zmianie branży? 
+Jak zbalansować czas poświęcony na odpoczynek, czas poświęcony na życie rodzinne, czas poświęcony na samorozwój? 
+Jak poradzić sobie z - ostatnio popularnym określeniem - prokrastynacją?`;
+
+const text2 = `Szukając odpowiedzi na te pytania znaleźliśmy drogę do...
+wspólnego spotkania w barze i w luźnej atmosferze, od słowa do słowa narodził się pomysł, 
+który ma nas nawzajem motywować do regularnej pracy, do utrwalania już zdobytej wiedzy i dobrych praktyk 
+oraz do rozwijania się w nowych technologiach.`;
+
+const text3 = `Skąd nazwa - to esencja momentu, w którym się znaleźliśmy. 
+Młodzi, aspirujący juniorzy, szukający swojego miejsca w IT - to nasz wspólny mianownik. 
+To czym się różnimy i nasze indywidualne projekty znajdziecie w naszych indywidualnych sekcjach klikając w nasze miniaturki.`
+
 
 const AboutUs = ({author}) => {
-    const authors = author.filter(el => el.fields.author != "Junior Coders");
-
-    const text1 = `Potrzeba matką wynalazku i taki jest też początek projektu JuniorCoders. 
-    Poszukując pomysłów na rozwój, każdy z naszej trójki spotykał się z podobnymi problemami. 
-    Jak pogodzić aktualną pracę z marzeniem o zmianie branży? 
-    Jak zbalansować czas poświęcony na odpoczynek, czas poświęcony na życie rodzinne, czas poświęcony na samorozwój? 
-    Jak poradzić sobie z - ostatnio popularnym określeniem - prokrastynacją?`;
-
-    const text2 = `Szukając odpowiedzi na te pytania znaleźliśmy drogę do...
-    wspólnego spotkania w barze i w takiej luźnej atmosferze, od słowa do słowa narodził się pomysł, 
-    który ma nas nawzajem motywować do regularnej pracy, do utrwalania już zdobytej wiedzy i dobrych praktyk 
-    oraz do rozwijania się w nowych technologiach.`;
-
-    const text3 = `Skąd nazwa - to esencja momentu, w którym się znaleźliśmy. 
-    Młodzi, aspirujący juniorzy, szukający swojego miejsca w IT - to nasz wspólny mianownik. 
-    To czym się różnimy i nasze indywidualne projekty znajdziecie w naszych indywidualnych sekcjach klikając w nasze miniaturki.`
+    const authors = author.filter(el => el.fields.author != "Junior Coders")
 
 
     return (
