@@ -22,7 +22,7 @@
     flex-direction: column;
     align-items: center;
     svg.logo {
-        height: 6rem;
+        height: 5rem;
         padding: 1rem;
     }
     @include logoTextColor(black);
@@ -34,25 +34,34 @@
 
 
 .aboutUs-team {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    padding-top: 10px;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+    // align-items: center;
     img {
         border-radius: 50%;
         
     }
     a {
-        margin: 1rem;
+        margin: 0.5rem;
+        @include lg {
+            margin: 1rem;
+        }
     }
 }
 
 .aboutUs-text {
     width: 90vw;
     p {
+        font-size: .9rem;
         padding-top: 1rem;
         text-align: center;
-        line-height: 1.5rem;
+        line-height: 1.3rem;
+        @include lg {
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
     }
     .aboutUs-signature {
         padding: 0.5rem;
