@@ -1,6 +1,7 @@
 @import "../utilities/mixins";
 
 .aboutUs {
+    @extend .min-height-screen;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +17,7 @@
     flex-direction: column;
     align-items: center;
     svg.logo {
-        height: 3rem;
+        height: 6rem;
         padding: 1rem;
     }
     @include logoTextColor(black)
@@ -38,14 +39,19 @@
 }
 
 .aboutUs-text {
+    width: 90vw;
     p {
         padding-top: 1rem;
         text-align: center;
         line-height: 1.5rem;
     }
     .aboutUs-signature {
-        padding: 0.2rem;
+        padding: 0.5rem;
+        padding-bottom: 1rem;
         font-weight: bold;
+    }
+    @include lg {
+        max-width: 860px; 
     }
 }
 
