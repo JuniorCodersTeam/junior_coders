@@ -36,3 +36,4 @@ package-lock.json
 .gitignore
 package.json
 .vscode/*
+.vscode/settings.json
