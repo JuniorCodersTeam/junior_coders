@@ -28,7 +28,9 @@ const AboutUs = ({author}) => {
         <section className="aboutUs" id="aboutUs">
 
             <div className="container aboutUs-container">
-                <Logo />
+                {/* <Logo /> */}
+                <div className="sketch"></div>
+
             <article className="aboutUs-team">
 
                 {authors.map((item) => {

@@ -35,6 +35,19 @@
     @include logoTextColor(white)
 }
 
+.sketch {
+    opacity: 0.9;
+    width:200px;
+    height:200px;
+    background-image: url(../../components/layout/AboutUs/LOGO_JuniorCodersSketchblack.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+[data-theme='dark'] .sketch {
+    background-image: url(../../components/layout/AboutUs/LOGO_JuniorCoders_sketch.png);
+}
 
 .aboutUs-team {
     padding-top: 10px;
