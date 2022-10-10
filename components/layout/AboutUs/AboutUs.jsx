@@ -3,7 +3,7 @@ import  Link  from "next/link";
 import  Image  from "next/image";
 import { replaceHangingConjunctions } from "../../../hooks/replaceHangingConjunctions";
 
-const text1 = `Potrzeba matką wynalazku i taki jest też początek projektu JuniorCoders. 
+const text1 = `Potrzeba matką wynalazku i taki jest też początek projektu Junior Coders. 
 Poszukując pomysłów na rozwój, każdy z naszej trójki spotykał się z podobnymi problemami. 
 Jak pogodzić aktualną pracę z marzeniem o zmianie branży? 
 Jak zbalansować czas poświęcony na odpoczynek, czas poświęcony na życie rodzinne, czas poświęcony na samorozwój? 
