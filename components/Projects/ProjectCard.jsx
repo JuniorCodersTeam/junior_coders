@@ -16,8 +16,8 @@ export const ProjectCard = ({ project }) => {
         <Image
             alt={image.fields.title}
             src={`https:${image.fields.file.url}`}
-            width="384"
-            height="288"
+            width="388"
+            height="250"
             className="blog-card--image"
             objectFit="cover"
             objectPosition="top"

@@ -1,6 +1,8 @@
 import {createClient} from "contentful";
 import Image from "next/image";
 import { Button } from "../../components/UI/Button";
+import Link from "next/link";
+import { BsArrowRightShort } from "react-icons/bs";
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -40,12 +42,14 @@ export async function getStaticProps({params}) {
 
 const Author = ({items, foundProjects}) => {
 
+    console.log(foundProjects)
+
     return (
         <>
         <div className="author-bg">
         <div className="container author-container">
 
-            <h2 className="projects-title">{items[0].fields.author}</h2>
+            
 
             <section className="author">
                 <div className="photo-box">
@@ -58,7 +62,7 @@ const Author = ({items, foundProjects}) => {
                         className="photo"
                     />
                 </div>
-                
+                <h2 className="author-name">{items[0].fields.author.split(' ')[0]}</h2>
 
                 <div className="author-content">
                     <p>{items[0].fields.about}</p>
@@ -86,7 +90,12 @@ const Author = ({items, foundProjects}) => {
                         <p>{project.fields.technologies}</p>
                     </div>
                     <div className="project-card--action">
-                        <Button current="projects" link={project.fields.slug} />
+                        <Link href={`/projects/${project.fields.slug}`}>
+                            <a className="btn">
+                                <span>{"Czytaj więcej"}</span>
+                                <BsArrowRightShort className="arrow-icon" />
+                            </a>
+                        </Link>
                     </div>
                 </div> 
                 
