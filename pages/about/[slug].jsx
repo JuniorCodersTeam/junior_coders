@@ -45,17 +45,20 @@ const Author = ({items, foundProjects}) => {
         <div className="author-bg">
         <div className="container author-container">
 
-            <h1>{items[0].fields.author}</h1>
+            <h2 className="projects-title">{items[0].fields.author}</h2>
 
             <section className="author">
-                <Image 
-                    loader={() => items[0].fields.photo?.fields.file.url }
-                    src={items[0].fields.photo?.fields.file.url}
-                    alt={items[0].fields.photo?.fields.description}
-                    width={200}
-                    height={200}  
-                    className="photo"
-                />
+                <div className="photo-box">
+                    <Image 
+                        loader={() => items[0].fields.photo?.fields.file.url }
+                        src={items[0].fields.photo?.fields.file.url}
+                        alt={items[0].fields.photo?.fields.description}
+                        width={150}
+                        height={150}  
+                        className="photo"
+                    />
+                </div>
+                
 
                 <div className="author-content">
                     <p>{items[0].fields.about}</p>

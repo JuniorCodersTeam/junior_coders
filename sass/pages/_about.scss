@@ -37,12 +37,16 @@
 
 .sketch {
     opacity: 0.9;
-    width:200px;
-    height:200px;
+    width:150px;
+    height:150px;
     background-image: url(../../components/layout/AboutUs/LOGO_JuniorCodersSketchblack.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    @include lg {
+        width:200px;
+        height:200px;
+    }
 }
 
 [data-theme='dark'] .sketch {
@@ -51,13 +55,8 @@
 
 .aboutUs-team {
     padding-top: 10px;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: space-between;
-    // align-items: center;
     img {
         border-radius: 50%;
-        
     }
     a {
         margin: 0.5rem;
