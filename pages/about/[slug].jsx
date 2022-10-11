@@ -47,68 +47,57 @@ const Author = ({items, foundProjects}) => {
     return (
         <>
         <div className="author-bg">
-        <div className="container author-container">
+            <div className="container author-container">
+                <section className="author">
+                    <div className="photo-box">
+                        <Image 
+                            loader={() => items[0].fields.photo?.fields.file.url }
+                            src={items[0].fields.photo?.fields.file.url}
+                            alt={items[0].fields.photo?.fields.description}
+                            width={150}
+                            height={150}  
+                            className="photo"
+                        />
+                    </div>
+                    <h2 className="author-name">{items[0].fields.author.split(' ')[0]}</h2>
 
-            
+                    <div className="author-content">
+                        <p>{items[0].fields.about}</p>
+                    </div>
 
-            <section className="author">
-                <div className="photo-box">
-                    <Image 
-                        loader={() => items[0].fields.photo?.fields.file.url }
-                        src={items[0].fields.photo?.fields.file.url}
-                        alt={items[0].fields.photo?.fields.description}
-                        width={150}
-                        height={150}  
-                        className="photo"
-                    />
+                    <div  className="project-cards">
+                    {foundProjects.map((project) => (
+                        <div key={project.fields.order} className="project-card">
+                        <Image
+                            alt={project.fields.title}
+                            src={`https:${project.fields.image.fields.file.url}`}
+                            width="384"
+                            height="288"
+                            className="blog-card--image"
+                            objectFit="cover"
+                            objectPosition="top"
+                        />
+                        <div className="title-bar">
+                            <h2>{project.fields.title}</h2>
+                        </div>
+                        
+                        <p>{project.fields.description}</p>
+                        <div className="technologies">
+                            <h3>Technologie:</h3>
+                            <p>{project.fields.technologies}</p>
+                        </div>
+                        <div className="project-card--action">
+                            <Button current="projects" link={project.fields.slug} />
+                        </div>
+                    </div> 
+                    ))}
                 </div>
-                <h2 className="author-name">{items[0].fields.author.split(' ')[0]}</h2>
-
-                <div className="author-content">
-                    <p>{items[0].fields.about}</p>
-                </div>
-
-                <div  className="project-cards">
-                {foundProjects.map((project) => (
-                    <div key={project.fields.order} className="project-card">
-                    <Image
-                        alt={project.fields.title}
-                        src={`https:${project.fields.image.fields.file.url}`}
-                        width="384"
-                        height="288"
-                        className="blog-card--image"
-                        objectFit="cover"
-                        objectPosition="top"
-                    />
-                    <div className="title-bar">
-                        <h2>{project.fields.title}</h2>
-                    </div>
-                    
-                    <p>{project.fields.description}</p>
-                    <div className="technologies">
-                        <h3>Technologie:</h3>
-                        <p>{project.fields.technologies}</p>
-                    </div>
-                    <div className="project-card--action">
-                        <Link href={`/projects/${project.fields.slug}`}>
-                            <a className="btn">
-                                <span>{"Czytaj więcej"}</span>
-                                <BsArrowRightShort className="arrow-icon" />
-                            </a>
-                        </Link>
-                    </div>
-                </div> 
+                </section>
                 
-            ))}
-
-</div>
-            </section>
-            
-        </div>
+            </div>
         </div>
         </>
     )
-                
 }
 
 export default Author

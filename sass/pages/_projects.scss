@@ -6,7 +6,11 @@
     background-position: center bottom;
     background-size: auto;
     background-repeat: no-repeat;
-    padding-bottom: 1rem
+}
+
+[data-theme='dark'] .projects-section {
+    background-image: url(../../pages/contact/background_bottom_dark.png);
+    mix-blend-mode: exclusion;
 }
 
 .projects-container {
@@ -20,12 +24,8 @@
     align-items: center; 
     flex-wrap: wrap;
     margin-top: 1rem;
+    padding-bottom: 1rem;
     width: 100%;
-}
-
-[data-theme='dark'] .projects-section {
-    background-image: url(../../pages/contact/background_bottom_dark.png);
-    mix-blend-mode: exclusion;
 }
 
 .projects-title {

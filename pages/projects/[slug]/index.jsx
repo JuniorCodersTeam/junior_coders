@@ -46,41 +46,44 @@ const Project = ({project}) => {
 
     return (
         <>
-        <div className="projects-container">
-            <div className="path-links">
-                <Link href="/"><span className="path-link">home</span></Link>
-                <BsChevronRight className="back-icon" />
-                <span className="path-link" onClick={() => router.back()}>{path[0]}</span>
-                <BsChevronRight className="back-icon" />
-                <span className="path-link" onClick={() => router.reload()}>{path[1]}</span>
-            </div>
-            <div className="project-detail-container">
-                <div className="project-detail-image">
-                    <Image
-                        alt={image.fields.title}
-                        src={`https:${image.fields.file.url}`}
-                        layout="fill"
-                        objectFit="cover"
-                    />
-                    <h3 className="project-h3">{title}</h3>
+        <div className="projects-section">
+            <div className="projects-container">
+                <div className="path-links">
+                    <Link href="/"><span className="path-link">home</span></Link>
+                    <BsChevronRight className="back-icon" />
+                    <span className="path-link" onClick={() => router.back()}>{path[0]}</span>
+                    <BsChevronRight className="back-icon" />
+                    <span className="path-link" onClick={() => router.reload()}>{path[1]}</span>
                 </div>
-                <div className="project-detail-info">
-                    <p className="project-p">{description}</p>
-                    <h4 className="project-h4">Technologie:</h4>
-                    <p className="project-p">{technologies}</p>
-                    <div className="project-detail-buttons">
-                        <Link href="/projects">
-                            <span className="project-detail-link btn">Projekt Live<BsArrowRightShort className="arrow-icon" /></span>
-                        </Link>
-                        <Link href="/projects">
-                            <span className="project-detail-link btn">GitHub<BsArrowRightShort className="arrow-icon" /></span>
-                        </Link>
+                <div className="project-detail-container">
+                    <div className="project-detail-image">
+                        <Image
+                            alt={image.fields.title}
+                            src={`https:${image.fields.file.url}`}
+                            layout="fill"
+                            objectFit="cover"
+                        />
+                        <h3 className="project-h3">{title}</h3>
                     </div>
-                    
+                    <div className="project-detail-info">
+                        <p className="project-p">{description}</p>
+                        <h4 className="project-h4">Technologie:</h4>
+                        <p className="project-p">{technologies}</p>
+                        <div className="project-detail-buttons">
+                            <Link href="/projects">
+                                <span className="project-detail-link btn">Projekt Live<BsArrowRightShort className="arrow-icon" /></span>
+                            </Link>
+                            <Link href="/projects">
+                                <span className="project-detail-link btn">GitHub<BsArrowRightShort className="arrow-icon" /></span>
+                            </Link>
+                        </div>
+                        
+                    </div>
+                
                 </div>
-            
             </div>
-        </div>    
+        </div>
+            
         </>
         
     )
