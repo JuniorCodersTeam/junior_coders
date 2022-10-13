@@ -63,14 +63,13 @@ const Author = ({items, foundProjects}) => {
                 </div>
 
                 <div  className="project-cards">
-                    
-                {foundProjects.map((project) => (
-                    
-                    <ProjectCard project={project} key={project.fields.order}/> 
-                
-            ))}
 
-</div>
+                {foundProjects.map((project) => (
+                    <ProjectCard project={project} key={project.fields.order}/>                 
+                ))}
+
+                </div>
+            
             </section>
             
         </div>
