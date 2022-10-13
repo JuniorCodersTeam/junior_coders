@@ -5,6 +5,7 @@
   background-position: center bottom;
   background-size: cover;
   background-repeat: no-repeat;
+  @extend .min-height-screen;
 }
 
 [data-theme='dark'] .blog-container {
@@ -13,8 +14,8 @@
 }
 .blog {
   @extend .container;
-  @extend .min-height-screen;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 1rem;
 }
