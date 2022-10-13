@@ -1,0 +1,45 @@
+.nopage-container {
+    background-image: url(../../pages/contact/background_bottom.png);
+    background-position: center bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    @extend .min-height-screen;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+[data-theme='dark'] .nopage-container {
+    background-image: url(../../pages/contact/background_bottom_dark.png);
+    mix-blend-mode: exclusion;
+}
+
+.nopage-title {
+    @extend .section-title;
+    padding-top: 0;
+    letter-spacing: .2rem;
+    color: $primary-yellow;
+}
+
+.nopage-title--info {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.nopage-number {
+    position: absolute;
+    text-align: center;
+    font-size: 40vw;
+    font-style: italic;
+    font-weight: 900;
+    opacity: .15;
+    // width: 80%;
+    @include md {
+        font-size: 30vw;
+    }
+    @include lg {
+        font-size: 20vw;
+    }
+}
