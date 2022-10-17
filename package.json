@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.12.1",
+    "@contentful/rich-text-types": "^15.13.2",
     "@emailjs/browser": "^3.7.0",
     "@next/eslint-plugin-next": "^12.2.5",
     "contentful": "^9.1.34",
@@ -17,7 +19,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
-    "sweetalert2": "^11.4.32"
+    "sweetalert2": "^11.5.2"
   },
   "devDependencies": {
     "eslint": "^8.22.0",
