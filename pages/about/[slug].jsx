@@ -1,6 +1,8 @@
 import {createClient} from "contentful";
 import Image from "next/image";
 import { Button } from "../../components/UI/Button";
+import Link from "next/link";
+import { BsArrowRightShort } from "react-icons/bs";
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -40,63 +42,62 @@ export async function getStaticProps({params}) {
 
 const Author = ({items, foundProjects}) => {
 
+    console.log(foundProjects)
+
     return (
         <>
         <div className="author-bg">
-        <div className="container author-container">
+            <div className="container author-container">
+                <section className="author">
+                    <div className="photo-box">
+                        <Image 
+                            loader={() => items[0].fields.photo?.fields.file.url }
+                            src={items[0].fields.photo?.fields.file.url}
+                            alt={items[0].fields.photo?.fields.description}
+                            width={150}
+                            height={150}  
+                            className="photo"
+                        />
+                    </div>
+                    <h2 className="author-name">{items[0].fields.author.split(' ')[0]}</h2>
 
-            <h1>{items[0].fields.author}</h1>
+                    <div className="author-content">
+                        <p>{items[0].fields.about}</p>
+                    </div>
 
-            <section className="author">
-                <Image 
-                    loader={() => items[0].fields.photo?.fields.file.url }
-                    src={items[0].fields.photo?.fields.file.url}
-                    alt={items[0].fields.photo?.fields.description}
-                    width={200}
-                    height={200}  
-                    className="photo"
-                />
-
-                <div className="author-content">
-                    <p>{items[0].fields.about}</p>
+                    <div  className="project-cards">
+                    {foundProjects.map((project) => (
+                        <div key={project.fields.order} className="project-card">
+                        <Image
+                            alt={project.fields.title}
+                            src={`https:${project.fields.image.fields.file.url}`}
+                            width="384"
+                            height="288"
+                            className="blog-card--image"
+                            objectFit="cover"
+                            objectPosition="top"
+                        />
+                        <div className="title-bar">
+                            <h2>{project.fields.title}</h2>
+                        </div>
+                        
+                        <p>{project.fields.description}</p>
+                        <div className="technologies">
+                            <h3>Technologie:</h3>
+                            <p>{project.fields.technologies}</p>
+                        </div>
+                        <div className="project-card--action">
+                            <Button current="projects" link={project.fields.slug} />
+                        </div>
+                    </div> 
+                    ))}
                 </div>
-
-                <div  className="project-cards">
-                {foundProjects.map((project) => (
-                    <div key={project.fields.order} className="project-card">
-                    <Image
-                        alt={project.fields.title}
-                        src={`https:${project.fields.image.fields.file.url}`}
-                        width="384"
-                        height="288"
-                        className="blog-card--image"
-                        objectFit="cover"
-                        objectPosition="top"
-                    />
-                    <div className="title-bar">
-                        <h2>{project.fields.title}</h2>
-                    </div>
-                    
-                    <p>{project.fields.description}</p>
-                    <div className="technologies">
-                        <h3>Technologie:</h3>
-                        <p>{project.fields.technologies}</p>
-                    </div>
-                    <div className="project-card--action">
-                        <Button current="projects" link={project.fields.slug} />
-                    </div>
-                </div> 
+                </section>
                 
-            ))}
-
-</div>
-            </section>
-            
-        </div>
+            </div>
         </div>
         </>
     )
-                
 }
 
 export default Author
