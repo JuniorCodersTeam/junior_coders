@@ -1,6 +1,6 @@
 import {createClient} from "contentful";
 import Image from "next/image";
-import { Button } from "../../components/UI/Button";
+import { Button } from "../../../components/UI/Button"
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -38,8 +38,9 @@ export async function getStaticProps({params}) {
 }
 
 
-const Author = ({items, foundProjects}) => {
 
+const Author = ({items, foundProjects}) => {
+console.log(foundProjects)
     return (
         <>
         <div className="author-bg">
@@ -83,7 +84,8 @@ const Author = ({items, foundProjects}) => {
                         <p>{project.fields.technologies}</p>
                     </div>
                     <div className="project-card--action">
-                        <Button current="projects" link={project.fields.slug} />
+                        {/* poniższe wyswietla poprawną scieżkę */}
+                        <Button current={items[0].fields.slug} link={project.fields.slug} />
                     </div>
                 </div> 
                 
