@@ -5,7 +5,6 @@
   max-width: 24rem;
   margin: 2rem;
   background-color: white;
-  // box-shadow: 2px -1px 15px -5px rgba(66, 68, 90, 0.5);
   box-shadow: 2px 2px 10px -5px #333;
   border-radius: 0.8rem;
   overflow: hidden;
@@ -14,6 +13,12 @@
   align-items: flex-start;
   height: fit-content;
 
+   [data-theme='dark'] & {
+    color: rgb(231, 231, 231);
+    background-color: $background-dark;
+    box-shadow: none;
+  }
+
   h1 {
     font-size: 1.3rem;
     font-weight: 600;
@@ -21,7 +26,7 @@
     margin: 1rem .5rem 0;
   }
 
-  & >p {
+  & > p {
     margin: .8rem;
     font-weight: 300;
     font-size: 1rem;
@@ -46,13 +51,16 @@
     div {
       margin-left: .7rem;
     }
-    div>p {
+
+    div > p {
       font-size: 1rem;
     }
-    div>span {
+
+    div > span {
       font-size: .8rem;
       color: $secondary-gray;
     }
+
     img {
       border-radius: 50%;
     }
