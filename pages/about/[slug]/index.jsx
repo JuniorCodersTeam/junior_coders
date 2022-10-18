@@ -67,6 +67,7 @@ console.log(foundProjects)
                     </div>
 
                 <div  className="project-cards">
+
                 {foundProjects.map((project) => (
                     <div key={project.fields.order} className="project-card">
                     <Image
