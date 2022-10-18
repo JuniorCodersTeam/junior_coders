@@ -23,7 +23,7 @@ export const BlogCard = ({ post }) => {
         objectFit="cover"
         objectPosition="top"
       />
-      <h1>{title}</h1>
+      <h2>{title}</h2>
       <p>{shortDescription}</p>
       <div className="blog-card--actions">
         <div className="blog-card--author">
