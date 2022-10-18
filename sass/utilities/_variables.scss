@@ -17,6 +17,8 @@ $screen-2xl-min: 1536px;
 $primary-yellow: #FFD100;
 $secondary-gray: #707070;
 $background-white-cream: #EFEFEF;
+$background-dark: #222;
+
 
 html,
 body {
@@ -34,3 +36,12 @@ body {
     $secondary-gray: white;
     $background-white-cream: #707070;
 }
+
+/* Font sizes. */
+$font-size-sm: 0.875rem;
+$size-md: 1rem;
+$size-lg: 1.125rem;
+$size-xl: 1.25rem;
+$size-2xl: 1.5rem;
+$size-3xl: 2rem;
+$size-4xl: 3rem;
