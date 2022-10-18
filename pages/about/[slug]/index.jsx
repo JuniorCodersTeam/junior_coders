@@ -1,6 +1,6 @@
 import {createClient} from "contentful";
 import Image from "next/image";
-import { Button } from "../../components/UI/Button";
+import { Button } from "../../../components/UI/Button";
 import Link from "next/link";
 import { BsArrowRightShort } from "react-icons/bs";
 
