@@ -1,14 +1,20 @@
 @import "../utilities/mixins";
 
 .aboutUs {
+    @extend .min-height-screen;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: $secondary-gray;
+    // color: $secondary-gray;
         background-image: url(../../pages/contact/background_bottom.png);
         background-position: center bottom;
         background-size: cover;
         background-repeat: no-repeat;
+}
+
+[data-theme='dark'] .aboutUs {
+    background-image: url(../../pages/contact/background_bottom_dark.png);
+    mix-blend-mode: exclusion;
 }
 
 .aboutUs-container {
@@ -16,36 +22,70 @@
     flex-direction: column;
     align-items: center;
     svg.logo {
-        height: 3rem;
+        height: 8rem;
         padding: 1rem;
+        @include lg {
+            height: 10rem;
+        }
     }
-    @include logoTextColor(black)
+    @include logoTextColor(black);
 }
 
+[data-theme='dark'] {
+    @include logoTextColor(white)
+}
+
+.sketch {
+    opacity: 0.9;
+    width:150px;
+    height:150px;
+    background-image: url(../../components/layout/AboutUs/LOGO_JuniorCodersSketchblack.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    @include lg {
+        width:200px;
+        height:200px;
+    }
+}
+
+[data-theme='dark'] .sketch {
+    background-image: url(../../components/layout/AboutUs/LOGO_JuniorCoders_sketch.png);
+}
 
 .aboutUs-team {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    padding-top: 10px;
     img {
         border-radius: 50%;
-        
     }
     a {
-        margin: 1rem;
+        margin: 0.5rem;
+        @include lg {
+            margin: 1rem;
+        }
     }
 }
 
 .aboutUs-text {
+    width: 90vw;
     p {
+        font-size: .9rem;
         padding-top: 1rem;
         text-align: center;
-        line-height: 1.5rem;
+        line-height: 1.3rem;
+        @include lg {
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
     }
     .aboutUs-signature {
-        padding: 0.2rem;
+        padding: 0.5rem;
+        padding-bottom: 1rem;
         font-weight: bold;
+        color: $secondary-gray
+    }
+    @include lg {
+        max-width: 860px; 
     }
 }
 

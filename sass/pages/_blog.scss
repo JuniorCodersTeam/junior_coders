@@ -1,5 +1,18 @@
 @import "./sass/utilities/mixins";
 
+.blog-container {
+  background-image: url(../../pages/contact/background_bottom.png);
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  @extend .min-height-screen;
+}
+
+[data-theme='dark'] .blog-container {
+    background-image: url(../../pages/contact/background_bottom_dark.png);
+    mix-blend-mode: exclusion;
+}
+
 .blog {
   @extend .min-height-screen;
   background-image: url(../../pages/contact/background_bottom.png);

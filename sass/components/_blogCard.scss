@@ -2,8 +2,8 @@
 
 
 .blog-card {
-  max-width: 24rem;
-  margin: 2rem;
+  max-width: 21rem;
+  margin: 1rem;
   background-color: white;
   box-shadow: 2px 2px 10px -5px #333;
   border-radius: 0.8rem;
@@ -19,15 +19,16 @@
     box-shadow: none;
   }
 
-  h1 {
+  h2 {
     font-size: 1.3rem;
     font-weight: 600;
-    letter-spacing: -.04rem;
-    margin: 1rem .5rem 0;
+    margin: 1rem 1rem 0;
+    word-spacing: -.2rem;
   }
 
-  & > p {
-    margin: .8rem;
+
+  & >p {
+    margin: 1rem;
     font-weight: 300;
     font-size: 1rem;
     display: -webkit-box;
@@ -39,8 +40,8 @@
 
 
   &--actions {
-    margin: .8rem;
-    width: 100%;
+    margin: 1rem;
+    // width: 100%;
   }
 
   &--author {
@@ -66,4 +67,10 @@
     }
   }
 
+}
+
+[data-theme='dark'] .blog-card {
+  color: rgb(231, 231, 231);
+  background-color: #222;
+  box-shadow: none;
 }
