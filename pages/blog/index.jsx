@@ -21,13 +21,15 @@ export async function getStaticProps() {
 
 const blog = ({ posts }) => {
   return (
-    <div className="blog">
-      <div className="blog-container">
+    <div className="blog-container">
+        <h2 className="projects-title">Blog</h2>
+        <div className="blog">
         {posts.map((post) => (
           <BlogCard post={post} key={post.sys.id} />
         ))}
       </div>
     </div>
+    
   );
 };
 
