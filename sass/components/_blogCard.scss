@@ -13,12 +13,19 @@
   align-items: flex-start;
   height: fit-content;
 
+   [data-theme='dark'] & {
+    color: rgb(231, 231, 231);
+    background-color: $background-dark;
+    box-shadow: none;
+  }
+
   h2 {
     font-size: 1.3rem;
     font-weight: 600;
     margin: 1rem 1rem 0;
     word-spacing: -.2rem;
   }
+
 
   & >p {
     margin: 1rem;
