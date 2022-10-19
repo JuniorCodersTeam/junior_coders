@@ -1,6 +1,6 @@
 import {createClient} from "contentful";
 import Image from "next/image";
-import { Button } from "../../components/UI/Button";
+import { Button } from "../../../components/UI/Button";
 import Link from "next/link";
 import { BsArrowRightShort } from "react-icons/bs";
 
@@ -40,8 +40,9 @@ export async function getStaticProps({params}) {
 }
 
 
-const Author = ({items, foundProjects}) => {
 
+const Author = ({items, foundProjects}) => {
+console.log(foundProjects)
     console.log(foundProjects)
 
     return (
@@ -65,36 +66,40 @@ const Author = ({items, foundProjects}) => {
                         <p>{items[0].fields.about}</p>
                     </div>
 
-                    <div  className="project-cards">
-                    {foundProjects.map((project) => (
-                        <div key={project.fields.order} className="project-card">
-                        <Image
-                            alt={project.fields.title}
-                            src={`https:${project.fields.image.fields.file.url}`}
-                            width="384"
-                            height="288"
-                            className="blog-card--image"
-                            objectFit="cover"
-                            objectPosition="top"
-                        />
-                        <div className="title-bar">
-                            <h2>{project.fields.title}</h2>
-                        </div>
-                        
-                        <p>{project.fields.description}</p>
-                        <div className="technologies">
-                            <h3>Technologie:</h3>
-                            <p>{project.fields.technologies}</p>
-                        </div>
-                        <div className="project-card--action">
-                            <Button current="projects" link={project.fields.slug} />
-                        </div>
-                    </div> 
-                    ))}
-                </div>
-                </section>
+                <div  className="project-cards">
+
+                {foundProjects.map((project) => (
+                    <div key={project.fields.order} className="project-card">
+                    <Image
+                        alt={project.fields.title}
+                        src={`https:${project.fields.image.fields.file.url}`}
+                        width="384"
+                        height="288"
+                        className="blog-card--image"
+                        objectFit="cover"
+                        objectPosition="top"
+                    />
+                    <div className="title-bar">
+                        <h2>{project.fields.title}</h2>
+                    </div>
+                    
+                    <p>{project.fields.description}</p>
+                    <div className="technologies">
+                        <h3>Technologie:</h3>
+                        <p>{project.fields.technologies}</p>
+                    </div>
+                    <div className="project-card--action">
+                        {/* poniższe wyswietla poprawną scieżkę */}
+                        <Button current={items[0].fields.slug} link={project.fields.slug} />
+                    </div>
+                </div> 
                 
-            </div>
+            ))}
+
+</div>
+            </section>
+            
+        </div>
         </div>
         </>
     )
