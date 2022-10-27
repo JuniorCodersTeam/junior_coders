@@ -43,7 +43,6 @@ const Project = ({project}) => {
     const router = useRouter()
     const path = router.asPath.replaceAll("/", " ").split(" ").slice(1)
 
-
     return (
         <>
         <div className="projects-container">

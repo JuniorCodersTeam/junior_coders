@@ -1,6 +1,7 @@
-import { Project} from "../../../projects/[slug]/index";
-import { createClient } from "contentful";
-import { useRouter } from "next/router";
+import AuthorCurrentProject from "./[index]";
+import {createClient} from 'contentful';
+import Project from "../../../projects/[slug]/index";
+
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -10,35 +11,41 @@ const client = createClient({
 export const getStaticPaths = async() => {
     const res = await client.getEntries({content_type: "projects"})
 
-    console.log(res.items)
+    console.log("res indexjsx w [author]", res.items)
+    //res.items - wszystkie projekty pobiera poprawnie - sprawdzone consollogiem
     const paths = res.items.map(item => {
-
+// tutaj dwa params maą być - patrz dokumentacja - tylko dobrze rozpisac z res.items
         return {
             params: {
-                author: item.fields.slug
+                author: item.fields.slug,
+                slug: item.fields.slug,
             }
         }
     })
-
-    return {paths, fallback: false}
+console.log("ścieżki indexjsx w [author]", paths)
+    //ścieżki pobiera dobre - sprawdzone consolelogiem
+    return {paths, fallback: true}
 }
+
 
 export const getStaticProps = async({params}) => {
-    const {items: project} = await client.getEntries({content_type: "projects", "fields.slug": params.author})
+    const {items} = await client.getEntries({content_type: "projects", "fields.slug": params.author})
     
-    return {props: {project}, revalidate: 30}
+    console.log("ten projekt potrzeba", items)
+    return {props: {items}}
 }
 
 
-// nie działa, nie włącza bo powiela się niby ścieżka
-const AuthorCurrentProject = ({project}) => {
 
-    console.log(project)
+const Co = (items, paths) => {
+    console.log("items", items)
+    // console.log("paths", paths)
     return (
         <>
-        <Project project={project}/>
+        <div>jestem</div>
+        <Project project={items.items}/>
         </>
     )
 }
 
-export default AuthorCurrentProject
+export default Co;

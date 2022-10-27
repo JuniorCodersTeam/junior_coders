@@ -1,6 +1,8 @@
 import {createClient} from "contentful";
 import Image from "next/image";
 import { Button } from "../../../components/UI/Button"
+import Link from 'next/link'
+
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -22,7 +24,7 @@ export const getStaticPaths = async() => {
 }
 
 export async function getStaticProps({params}) {
-    const {items} = await client.getEntries( {
+    const {items: author} = await client.getEntries( {
         content_type: "author",
         "fields.slug": params.slug
     })
@@ -31,35 +33,35 @@ export async function getStaticProps({params}) {
         content_type: "projects",
     })
 // wyskakuje undefined bo nie wszystkie projekty mają dodanego autora
-    const foundProjects = projects.filter(el => el.fields?.author.fields.author == items[0].fields.author)
+    const foundProjects = projects.filter(el => el.fields?.author.fields.author == author[0].fields.author)
 
     
-    return {props: {items, projects, foundProjects}}
+    return {props: {author, projects, foundProjects}}
 }
 
 
 
-const Author = ({items, foundProjects}) => {
-console.log(foundProjects)
+const Author = ({author, foundProjects}) => {
+
     return (
         <>
         <div className="author-bg">
         <div className="container author-container">
 
-            <h1>{items[0].fields.author}</h1>
+            <h1>{author[0].fields.author}</h1>
 
             <section className="author">
                 <Image 
-                    loader={() => items[0].fields.photo?.fields.file.url }
-                    src={items[0].fields.photo?.fields.file.url}
-                    alt={items[0].fields.photo?.fields.description}
+                    loader={() => author[0].fields.photo?.fields.file.url }
+                    src={author[0].fields.photo?.fields.file.url}
+                    alt={author[0].fields.photo?.fields.description}
                     width={200}
                     height={200}  
                     className="photo"
                 />
 
                 <div className="author-content">
-                    <p>{items[0].fields.about}</p>
+                    <p>{author[0].fields.about}</p>
                 </div>
 
                 <div  className="project-cards">
@@ -85,7 +87,10 @@ console.log(foundProjects)
                     </div>
                     <div className="project-card--action">
                         {/* poniższe wyswietla poprawną scieżkę */}
-                        <Button current={items[0].fields.slug} link={project.fields.slug} />
+                        <Link href={project.fields.slug}>
+                        <Button current={author[0].fields.slug} link={project.fields.slug} />
+
+                        </Link>
                     </div>
                 </div> 
                 
