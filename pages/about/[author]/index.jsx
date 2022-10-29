@@ -15,7 +15,7 @@ export const getStaticPaths = async() => {
     const paths = res.items.map(item => {
         return {
             params: {
-                slug: item.fields.slug
+                author: item.fields.slug
             }
         }
     })
@@ -26,16 +26,15 @@ export const getStaticPaths = async() => {
 export async function getStaticProps({params}) {
     const {items: author} = await client.getEntries( {
         content_type: "author",
-        "fields.slug": params.slug
+        "fields.slug": params.author
     })
 
     const {items: projects} = await client.getEntries( {
         content_type: "projects",
     })
-// wyskakuje undefined bo nie wszystkie projekty mają dodanego autora
+
     const foundProjects = projects.filter(el => el.fields?.author.fields.author == author[0].fields.author)
 
-    
     return {props: {author, projects, foundProjects}}
 }
 
@@ -86,10 +85,8 @@ const Author = ({author, foundProjects}) => {
                         <p>{project.fields.technologies}</p>
                     </div>
                     <div className="project-card--action">
-                        {/* poniższe wyswietla poprawną scieżkę */}
                         <Link href={project.fields.slug}>
                         <Button current={author[0].fields.slug} link={project.fields.slug} />
-
                         </Link>
                     </div>
                 </div> 
