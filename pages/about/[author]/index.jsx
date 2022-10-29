@@ -23,14 +23,15 @@ export const getStaticPaths = async () => {
 };
 
 export async function getStaticProps({ params }) {
-  const { items: author } = await client.getEntries({
-    content_type: "author",
-    "fields.slug": params.author,
-  });
-
-  const { items: projects } = await client.getEntries({
-    content_type: "projects",
-  });
+  const [{ items: author }, { items: projects }] = await Promise.all([
+    client.getEntries({
+      content_type: "author",
+      "fields.slug": params.author,
+    }),
+    client.getEntries({
+      content_type: "projects",
+    }),
+  ]);
 
   const foundProjects = projects.filter(
     (el) => el.fields?.author.fields.author == author[0].fields.author
