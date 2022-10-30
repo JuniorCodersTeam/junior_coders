@@ -83,12 +83,10 @@ const Author = ({ author, foundProjects }) => {
                     <p>{project.fields.technologies}</p>
                   </div>
                   <div className="project-card--action">
-                    <Link href={project.fields.slug}>
-                      <Button
-                        current={author[0].fields.slug}
-                        link={project.fields.slug}
-                      />
-                    </Link>
+                    <Button
+                      current={`about/${author[0].fields.slug}`}
+                      link={project.fields.slug}
+                    />
                   </div>
                 </div>
               ))}
