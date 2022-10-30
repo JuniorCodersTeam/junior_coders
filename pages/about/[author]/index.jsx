@@ -54,7 +54,7 @@ const Author = ({ author, foundProjects }) => {
               alt={author[0].fields.photo?.fields.description}
               width={200}
               height={200}
-              className="photo"
+              className="photo photo-box"
             />
 
             <div className="author-content">
