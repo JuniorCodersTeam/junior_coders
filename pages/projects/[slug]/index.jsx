@@ -5,6 +5,10 @@ import { BsChevronRight } from "react-icons/bs";
 import { BsArrowRightShort } from "react-icons/bs";
 import Image from "next/image";
 
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
+
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_KEY,
@@ -39,8 +43,9 @@ const Project = ({ project }) => {
   const router = useRouter();
 
   if (router.isFallback) {
-    return <div>Loading...</div>;
+    return <div>{<Skeleton count={33}/>}</div>;
   }
+
   const { title, slug, image, description, technologies } = project[0].fields;
 
   const path = router.asPath.replaceAll("/", " ").split(" ").slice(1);
