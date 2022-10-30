@@ -9,7 +9,7 @@ export const BlogCard = ({ post }) => {
     shortDescription,
     data: date,
   } = post.fields;
-
+  console.log(post.fields.author);
   const formattedData = new Date(date).toDateString();
 
   return (
@@ -28,8 +28,8 @@ export const BlogCard = ({ post }) => {
       <div className="blog-card--actions">
         <div className="blog-card--author">
           <Image
-            alt={post.fields.author.fields.photo.fields.description}
-            src={`https:${post.fields.author.fields.photo.fields.file.url}`}
+            alt={post.fields.author?.fields.photo.fields.description}
+            src={`https:${post.fields.author?.fields.photo.fields.file.url}`}
             width="50"
             height="50"
           />

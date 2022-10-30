@@ -36,7 +36,6 @@ const AboutUs = ({author}) => {
                 {authors.map((item) => {
                     return (
                         <>
-                        {/* co wrzucić żeby się link wyświetlał poprawnie */}
                         <Link 
                             key={item.sys.id}
                             href={`/about/${item.fields.slug}`}
