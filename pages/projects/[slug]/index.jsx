@@ -86,7 +86,7 @@ const Project = ({ project }) => {
     )
   }
 
-  const { title, slug, image, description, technologies, liveLink, githubLink } = project[0].fields 
+  const { title, image, description, technologies, liveLink, githubLink } = project[0].fields 
   const path = router.asPath.replaceAll("/", " ").split(" ").slice(1);
 
   return (
@@ -108,8 +108,8 @@ const Project = ({ project }) => {
         <div className="project-detail-container">
           <div className="project-detail-image">
             <Image 
-              alt={project[0].fields.image.fields.title}
-              src={`https:${project[0].fields.image.fields.file.url}`}
+              alt={image.fields.title}
+              src={`https:${image.fields.file.url}`}
               layout="fill"
               objectFit="cover"
             />
