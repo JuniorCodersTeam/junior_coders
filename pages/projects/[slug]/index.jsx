@@ -58,7 +58,7 @@ const Project = ({ project }) => {
         {/* </div> */}
         <div className="project-detail-container">
           <div className="project-detail-image">
-            <Skeleton circle={true} height={"30vh"}/>
+            <Skeleton circle={true} height={"100%"}/>
             {/* <h3 className="project-h3">{<Skeleton/>}</h3> */}
           </div>
           <div className="project-detail-info">
