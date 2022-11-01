@@ -62,21 +62,21 @@ const Project = ({ project }) => {
             {/* <h3 className="project-h3">{<Skeleton/>}</h3> */}
           </div>
           <div className="project-detail-info">
-            <p className="project-p">{<Skeleton count={5}/>}</p>
+            <p className="project-p">{<Skeleton count={9}/>}</p>
             <h4 className="project-h4"><Skeleton/></h4>
-            <p className="project-p">{<Skeleton count={5}/>}</p>
+            <p className="project-p">{<Skeleton count={9}/>}</p>
             <div className="project-detail-buttons">
               {/* <Link href="/projects"> */}
-                <span className="project-detail-link btn">
-                  <Skeleton/>
+                {/* <span className="project-detail-link btn">
+                  <Skeleton/> */}
                   {/* <BsArrowRightShort className="arrow-icon" /> */}
-                </span>
+                {/* </span> */}
               {/* </Link> */}
               {/* <Link href="/projects"> */}
-                <span className="project-detail-link btn">
-                  <Skeleton/>
+                {/* <span className="project-detail-link btn">
+                  <Skeleton/> */}
                   {/* <BsArrowRightShort className="arrow-icon" /> */}
-                </span>
+                {/* </span> */}
               {/* </Link> */}
             </div>
           </div>
