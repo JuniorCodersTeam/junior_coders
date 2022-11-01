@@ -4,10 +4,13 @@ import Link from "next/link";
 import { BsChevronRight } from "react-icons/bs";
 import { BsArrowRightShort } from "react-icons/bs";
 import Image from "next/image";
+import LoadingSkeleton from "../../../components/LoadingSkeleton";
 
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
+// import { Facebook, Code } from 'react-content-loader'
+import ContentLoader from "react-content-loader";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -42,13 +45,53 @@ export const getStaticProps = async ({ params }) => {
 const Project = ({ project }) => {
   const router = useRouter();
 
+  
   if (router.isFallback) {
-    return <div>{<Skeleton count={33}/>}</div>;
+    return (
+      <>
+      <div className="projects-container">
+        {/* <div className="path-links">
+          <Link href="/">
+            <span className="path-link"><Skeleton/></span>
+          </Link>
+          <BsChevronRight className="back-icon" />
+          <span className="path-link"><Skeleton/></span>
+          <BsChevronRight className="back-icon" />
+          <span className="path-link"><Skeleton/></span> */}
+        {/* </div> */}
+        <div className="project-detail-container">
+          <div className="project-detail-image">
+            <Skeleton circle={true} height={"30vh"}/>
+            {/* <h3 className="project-h3">{<Skeleton/>}</h3> */}
+          </div>
+          <div className="project-detail-info">
+            <p className="project-p">{<Skeleton count={5}/>}</p>
+            <h4 className="project-h4"><Skeleton/></h4>
+            <p className="project-p">{<Skeleton count={5}/>}</p>
+            <div className="project-detail-buttons">
+              {/* <Link href="/projects"> */}
+                <span className="project-detail-link btn">
+                  <Skeleton/>
+                  {/* <BsArrowRightShort className="arrow-icon" /> */}
+                </span>
+              {/* </Link> */}
+              {/* <Link href="/projects"> */}
+                <span className="project-detail-link btn">
+                  <Skeleton/>
+                  {/* <BsArrowRightShort className="arrow-icon" /> */}
+                </span>
+              {/* </Link> */}
+            </div>
+          </div>
+        </div>
+      </div>
+      </>
+    )
   }
 
-  const { title, slug, image, description, technologies } = project[0].fields;
-
+  const { title, slug, image, description, technologies } = project[0].fields 
   const path = router.asPath.replaceAll("/", " ").split(" ").slice(1);
+
   return (
     <>
       <div className="projects-container">
@@ -67,18 +110,18 @@ const Project = ({ project }) => {
         </div>
         <div className="project-detail-container">
           <div className="project-detail-image">
-            <Image
-              alt={image.fields.title}
-              src={`https:${image.fields.file.url}`}
+            <Image 
+              alt={project[0].fields.image.fields.title}
+              src={`https:${project[0].fields.image.fields.file.url}`}
               layout="fill"
               objectFit="cover"
             />
-            <h3 className="project-h3">{title}</h3>
+            <h3 className="project-h3">{title || <Skeleton/>}</h3>
           </div>
           <div className="project-detail-info">
-            <p className="project-p">{description}</p>
+            <p className="project-p">{description || <Skeleton/>}</p>
             <h4 className="project-h4">Technologie:</h4>
-            <p className="project-p">{technologies}</p>
+            <p className="project-p">{technologies || <Skeleton/>}</p>
             <div className="project-detail-buttons">
               <Link href="/projects">
                 <span className="project-detail-link btn">
@@ -101,5 +144,3 @@ const Project = ({ project }) => {
 };
 
 export default Project;
-
-
