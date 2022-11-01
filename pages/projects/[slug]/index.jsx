@@ -9,9 +9,6 @@ import LoadingSkeleton from "../../../components/LoadingSkeleton";
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-// import { Facebook, Code } from 'react-content-loader'
-import ContentLoader from "react-content-loader";
-
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_KEY,
@@ -45,7 +42,7 @@ export const getStaticProps = async ({ params }) => {
 const Project = ({ project }) => {
   const router = useRouter();
 
-  
+
   if (router.isFallback) {
     return (
       <>
