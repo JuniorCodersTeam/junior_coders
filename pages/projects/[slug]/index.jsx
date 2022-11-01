@@ -41,7 +41,7 @@ export const getStaticProps = async ({ params }) => {
 
 const Project = ({ project }) => {
   const router = useRouter();
-
+  console.log(project)
 
   if (router.isFallback) {
     return (
@@ -86,7 +86,7 @@ const Project = ({ project }) => {
     )
   }
 
-  const { title, slug, image, description, technologies } = project[0].fields 
+  const { title, slug, image, description, technologies, liveLink, githubLink } = project[0].fields 
   const path = router.asPath.replaceAll("/", " ").split(" ").slice(1);
 
   return (
