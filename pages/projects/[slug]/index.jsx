@@ -6,7 +6,7 @@ import { BsArrowRightShort } from "react-icons/bs";
 import Image from "next/image";
 import LoadingSkeleton from "../../../components/LoadingSkeleton";
 
-import Skeleton from 'react-loading-skeleton'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 const client = createClient({
@@ -46,6 +46,7 @@ const Project = ({ project }) => {
   if (router.isFallback) {
     return (
       <>
+      <SkeletonTheme baseColor="grey" highlightColor="#EFEFEF">
       <div className="projects-container">
         {/* <div className="path-links">
           <Link href="/">
@@ -58,7 +59,7 @@ const Project = ({ project }) => {
         {/* </div> */}
         <div className="project-detail-container">
           <div className="project-detail-image">
-            <Skeleton circle={true} height={"100%"}/>
+            <Skeleton height={"100%"}/>
             {/* <h3 className="project-h3">{<Skeleton/>}</h3> */}
           </div>
           <div className="project-detail-info">
@@ -82,6 +83,7 @@ const Project = ({ project }) => {
           </div>
         </div>
       </div>
+      </SkeletonTheme>
       </>
     )
   }
