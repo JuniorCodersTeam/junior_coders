@@ -42,22 +42,3 @@ export const RICHTEXT_OPTIONS = {
     }, []);
   },
 };
-
-const getNewUpdatedRichText = (options, defaultOptions = RICHTEXT_OPTIONS) => {
-  return Object.keys(defaultOptions).reduce((acc, key) => {
-    if (options[key]) {
-      return {
-        ...acc,
-        [key]: {
-          ...RICHTEXT_OPTIONS[key],
-          ...options[key],
-        },
-      };
-    } else {
-      return {
-        ...acc,
-        [key]: RICHTEXT_OPTIONS[key],
-      };
-    }
-  }, {});
-};
