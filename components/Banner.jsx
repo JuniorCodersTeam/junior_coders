@@ -1,10 +1,9 @@
 import { Logo } from "./Logo";
 import Image from "next/image";
-import { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
 
 export const Banner = ({ resBanner }) => {
-  const { theme, setTheme } = useTheme()
+  const { theme } = useTheme()
 
   return (
     <>

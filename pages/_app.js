@@ -1,7 +1,7 @@
 import '../sass/main.scss'
 import {Layout} from "../components/layout/Layout";
 import { ThemeProvider } from 'next-themes'
-import {useEffect, useState} from 'react';
+// import {useEffect, useState} from 'react';
 
 function MyApp({ Component, pageProps }) {
 

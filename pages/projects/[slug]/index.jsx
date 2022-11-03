@@ -6,7 +6,6 @@ import { BsArrowRightShort } from "react-icons/bs";
 import Image from "next/image";
 import LoadingSkeleton from "../../../components/LoadingSkeleton";
 
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 const client = createClient({
