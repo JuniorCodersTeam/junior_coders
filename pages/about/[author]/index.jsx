@@ -1,7 +1,6 @@
 import { createClient } from "contentful";
 import Image from "next/image";
 import { Button } from "../../../components/UI/Button";
-import Link from "next/link";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
