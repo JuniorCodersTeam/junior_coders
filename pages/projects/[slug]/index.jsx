@@ -44,48 +44,7 @@ const Project = ({ project }) => {
   console.log(project)
 
   if (router.isFallback) {
-    return (
-      <>
-      <SkeletonTheme baseColor="grey" highlightColor="#EFEFEF">
-      <div className="projects-container">
-        {/* <div className="path-links">
-          <Link href="/">
-            <span className="path-link"><Skeleton/></span>
-          </Link>
-          <BsChevronRight className="back-icon" />
-          <span className="path-link"><Skeleton/></span>
-          <BsChevronRight className="back-icon" />
-          <span className="path-link"><Skeleton/></span> */}
-        {/* </div> */}
-        <div className="project-detail-container">
-          <div className="project-detail-image">
-            <Skeleton height={"100%"}/>
-            {/* <h3 className="project-h3">{<Skeleton/>}</h3> */}
-          </div>
-          <div className="project-detail-info">
-            <p className="project-p">{<Skeleton count={9}/>}</p>
-            <h4 className="project-h4"><Skeleton/></h4>
-            <p className="project-p">{<Skeleton count={9}/>}</p>
-            <div className="project-detail-buttons">
-              {/* <Link href="/projects"> */}
-                {/* <span className="project-detail-link btn">
-                  <Skeleton/> */}
-                  {/* <BsArrowRightShort className="arrow-icon" /> */}
-                {/* </span> */}
-              {/* </Link> */}
-              {/* <Link href="/projects"> */}
-                {/* <span className="project-detail-link btn">
-                  <Skeleton/> */}
-                  {/* <BsArrowRightShort className="arrow-icon" /> */}
-                {/* </span> */}
-              {/* </Link> */}
-            </div>
-          </div>
-        </div>
-      </div>
-      </SkeletonTheme>
-      </>
-    )
+    return <LoadingSkeleton/>
   }
 
   const { title, image, description, technologies, liveLink, githubLink } = project[0].fields 
@@ -115,12 +74,12 @@ const Project = ({ project }) => {
               layout="fill"
               objectFit="cover"
             />
-            <h3 className="project-h3">{title || <Skeleton/>}</h3>
+            <h3 className="project-h3">{title}</h3>
           </div>
           <div className="project-detail-info">
-            <p className="project-p">{description || <Skeleton/>}</p>
+            <p className="project-p">{description}</p>
             <h4 className="project-h4">Technologie:</h4>
-            <p className="project-p">{technologies || <Skeleton/>}</p>
+            <p className="project-p">{technologies}</p>
             <div className="project-detail-buttons">
 
               {liveLink
