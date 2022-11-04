@@ -11,21 +11,25 @@ export async function getStaticProps() {
         content_type: "projects",
     });
 
-    const projects  = items.sort((a,b) => a.fields.order - b.fields.order) 
+    const projects = items.filter(
+        (el) => el.fields?.author.fields.author == "Junior Coders"
+    );
+
+    const projectsToShow  = projects.sort((a,b) => a.fields.order - b.fields.order) 
 
     return {
-        props: { projects }
+        props: { projectsToShow }
         };
     }
 
-const Projects = ({ projects }) => {
+const Projects = ({ projectsToShow }) => {
 
     return (
         <section className="projects-section">
             <div className="projects-container">
                 <h2 className="projects-title">Nasze projekty</h2>
                 <div className="project-cards">
-                {projects.map((project) => (
+                {projectsToShow.map((project) => (
                     <ProjectCard 
                         project={project}     
                         key={project.sys.id} 
