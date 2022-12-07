@@ -1,42 +1,24 @@
-import { createClient } from "contentful";
 import Image from "next/image";
 import { Button } from "../../../components/UI/Button";
-
-const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID,
-  accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-});
+import ContentService from "../../../lib/contentful";
 
 export const getStaticPaths = async () => {
-  const res = await client.getEntries({ content_type: "author" });
-
-  const paths = res.items.map((item) => {
-    return {
-      params: {
-        author: item.fields.slug,
-      },
-    };
-  });
+  const paths = await new ContentService("author").getAllPaths("author");
 
   return { paths, fallback: false };
 };
 
 export async function getStaticProps({ params }) {
-  const [{ items: author }, { items: projects }] = await Promise.all([
-    client.getEntries({
-      content_type: "author",
-      "fields.slug": params.author,
-    }),
-    client.getEntries({
-      content_type: "projects",
-    }),
+  const [author, projects] = await Promise.all([
+    new ContentService("author").getPostBySlug(params.author),
+    new ContentService("projects").getEntriesByType(),
   ]);
 
   const foundProjects = projects.filter(
-    (el) => el.fields?.author.fields.author == author[0].fields.author
+    (el) => el.fields?.author.fields.author === author[0].fields.author
   );
 
-  return { props: { author, projects, foundProjects } };
+  return { props: { author, projects, foundProjects }, revalidate: 30 };
 }
 
 const Author = ({ author, foundProjects }) => {
