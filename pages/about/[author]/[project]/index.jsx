@@ -1,39 +1,34 @@
-import {createClient} from 'contentful';
 import Project from "../../../projects/[slug]/index";
+import ContentService from "../../../../lib/contentful";
 
-const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-});
+export const getStaticPaths = async () => {
+  const res = await new ContentService("projects").getEntriesByType();
 
-export const getStaticPaths = async() => {
-    const res = await client.getEntries({content_type: "projects"})
+  const paths = res.map((item) => {
+    return {
+      params: {
+        author: item.fields.slug,
+        project: item.fields.slug,
+      },
+    };
+  });
+  return { paths, fallback: true };
+};
 
-    const paths = res.items.map(item => {
-        return {
-            params: {
-                author: item.fields.slug,
-                project: item.fields.slug,
-            }
-        }
-    })
+export const getStaticProps = async ({ params }) => {
+  const items = await new ContentService("projects").getPostBySlug(
+    params.project
+  );
 
-    return {paths, fallback: true}
-}
-
-export const getStaticProps = async({params}) => {
-    const {items} = await client.getEntries({content_type: "projects", "fields.slug": params.project})
-    
-    return {props: {items}}
-}
-
+  return { props: { items }, revalidate: 30 };
+};
 
 const AuthorCurrentProject = (items) => {
-    return (
-        <>
-        <Project project={items.items}/>
-        </>
-    )
-}
+  return (
+    <>
+      <Project project={items.items} />
+    </>
+  );
+};
 
 export default AuthorCurrentProject;

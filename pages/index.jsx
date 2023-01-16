@@ -1,22 +1,16 @@
-import {Banner} from "../components/Banner"
-import {createClient} from "contentful"
+import { Banner } from "../components/Banner";
+import ContentService from "../lib/contentful";
 
 export async function getStaticProps() {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY
-  })
-  const resBanner = await client.getEntries({
-    content_type: "baner"
-  })
-  return { props: { resBanner: resBanner.items } }
+  const resBanner = await new ContentService("baner").getEntriesByType();
+
+  return { props: { resBanner: resBanner }, revalidate: 30 };
 }
 
-export default function Home({resBanner}) {
-
+export default function Home({ resBanner }) {
   return (
     <div>
       <Banner resBanner={resBanner} />
     </div>
-  )
+  );
 }

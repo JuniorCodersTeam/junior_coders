@@ -1,22 +1,14 @@
 import AboutUs from "../../components/layout/AboutUs/AboutUs";
-import {createClient} from "contentful";
+import ContentService from "../../lib/contentful";
 
 export async function getStaticProps() {
-    const client = createClient({
-        space: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-    });
-    const {items: authors} = await client.getEntries({content_type: "author"})
-    
-    return {props: {authors}}
+  const authors = await new ContentService("author").getEntriesByType();
+
+  return { props: { authors }, revalidate: 30 };
 }
 
-
-const About = ({authors}) => {
-
-    return (
-        <AboutUs author={authors}/>
-    );
+const About = ({ authors }) => {
+  return <AboutUs author={authors} />;
 };
 
 export default About;

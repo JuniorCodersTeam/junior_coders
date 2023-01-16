@@ -1,32 +1,16 @@
-import { createClient } from "contentful";
 import Image from "next/image";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { RICHTEXT_OPTIONS } from "../../../components/contentfulRichText";
-
-const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID,
-  accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-});
+import ContentService from "../../../lib/contentful";
 
 export const getStaticPaths = async () => {
-  const res = await client.getEntries({ content_type: "blogPosts" });
-
-  const paths = res.items.map((item) => {
-    return {
-      params: {
-        slug: item.fields.slug,
-      },
-    };
-  });
+  const paths = await new ContentService("blogPosts").getAllPaths();
 
   return { paths, fallback: false };
 };
 
 export const getStaticProps = async ({ params }) => {
-  const { items: blog } = await client.getEntries({
-    content_type: "blogPosts",
-    "fields.slug": params.slug,
-  });
+  const blog = await new ContentService("blogPosts").getPostBySlug(params.slug);
   return { props: { blog }, revalidate: 30 };
 };
 
